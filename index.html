@@ -97,6 +97,8 @@
   .field input, .field select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--border);background:#0f1115;color:var(--text);font-size:0.9rem;}
   .btn{display:inline-block;padding:9px 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:0.85rem;font-weight:600;cursor:pointer;}
   .btn.secondary{background:var(--card);color:var(--text);border-color:var(--border);}
+  .btn.danger{background:var(--card);color:var(--red);border-color:var(--red);}
+  .btn:disabled{opacity:0.4;cursor:default;}
   .btn.small{padding:6px 10px;font-size:0.75rem;}
   .row-flex{display:flex;gap:10px;flex-wrap:wrap;}
   .row-flex>*{flex:1;min-width:120px;}
@@ -935,25 +937,56 @@ function renderStrategySub(){
 }
 
 let simState = { running:false, stageIdx:0, startTime:0, stageStartTime:0, laps:[], interval:null };
+let simTrendChartInstance = null;
 
 function renderSimSub(){
   const el = document.getElementById('simSub');
   const sims = loadSims();
+  const initialTimerText = simState.running ? fmtTime((Date.now()-simState.startTime)/1000) : '0:00';
+  const initialStageText = simState.running
+    ? `Stage ${simState.stageIdx+1} of 16: ${SIM_STAGES[simState.stageIdx].label}`
+    : 'Ready to start \u2014 Stage 1: ' + SIM_STAGES[0].label;
   el.innerHTML = `
     <div class="card">
       <h3>Full simulation timer</h3>
-      <div class="sim-timer-display" id="simTimerDisplay">0:00</div>
-      <div class="sim-current" id="simCurrentStage">Ready to start &mdash; Stage 1: ${SIM_STAGES[0].label}</div>
+      <div class="sim-timer-display" id="simTimerDisplay">${initialTimerText}</div>
+      <div class="sim-current" id="simCurrentStage">${initialStageText}</div>
       <div class="row-flex">
         <button class="btn" id="simStartBtn">Start</button>
         <button class="btn secondary" id="simLapBtn" disabled>Lap / Next Stage</button>
       </div>
+      <div class="row-flex" style="margin-top:8px;">
+        <button class="btn danger" id="simStopBtn" disabled>Stop</button>
+        <button class="btn secondary" id="simResetBtn" disabled>Reset</button>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <h4>Simulation progress over time</h4>
+      <canvas id="simTrendChart"></canvas>
+      <div class="empty-note" id="simTrendEmpty" style="display:none;">No simulations logged yet \u2014 run your first one below.</div>
     </div>
     <div id="simPastResults"></div>
   `;
   document.getElementById('simStartBtn').onclick = simStart;
   document.getElementById('simLapBtn').onclick = simLap;
+  document.getElementById('simStopBtn').onclick = simStop;
+  document.getElementById('simResetBtn').onclick = simReset;
+  updateSimButtons();
+  renderSimTrendChart(sims);
   renderPastSims(sims);
+}
+
+function updateSimButtons(){
+  const running = simState.running;
+  const startBtn = document.getElementById('simStartBtn');
+  const lapBtn = document.getElementById('simLapBtn');
+  const stopBtn = document.getElementById('simStopBtn');
+  const resetBtn = document.getElementById('simResetBtn');
+  if(!startBtn) return;
+  startBtn.disabled = running;
+  lapBtn.disabled = !running;
+  stopBtn.disabled = !running;
+  resetBtn.disabled = !running;
 }
 
 function simTick(){
@@ -965,9 +998,8 @@ function simStart(){
   if(simState.running) return;
   simState = { running:true, stageIdx:0, startTime:Date.now(), stageStartTime:Date.now(), laps:[], interval:null };
   simState.interval = setInterval(simTick, 250);
-  document.getElementById('simStartBtn').disabled = true;
-  document.getElementById('simLapBtn').disabled = false;
   document.getElementById('simCurrentStage').textContent = 'Stage 1 of 16: ' + SIM_STAGES[0].label;
+  updateSimButtons();
 }
 
 function simLap(){
@@ -978,23 +1010,71 @@ function simLap(){
   simState.stageIdx++;
   simState.stageStartTime = now;
   if(simState.stageIdx >= SIM_STAGES.length){
-    simFinish();
+    simFinish(false);
   }else{
     document.getElementById('simCurrentStage').textContent = `Stage ${simState.stageIdx+1} of 16: ${SIM_STAGES[simState.stageIdx].label}`;
   }
 }
 
-function simFinish(){
+function simFinish(stoppedEarly){
   clearInterval(simState.interval);
   const totalSeconds = (Date.now() - simState.startTime)/1000;
-  const sims = loadSims();
-  sims.push({ date: todayStr(), totalSeconds, laps: simState.laps });
-  saveSims(sims);
-  document.getElementById('simStartBtn').disabled = false;
-  document.getElementById('simLapBtn').disabled = true;
-  document.getElementById('simCurrentStage').textContent = `Simulation complete: ${fmtTime(totalSeconds)}`;
-  simState.running = false;
-  renderPastSims(sims);
+  const laps = simState.laps;
+  if(laps.length > 0){
+    const sims = loadSims();
+    sims.push({ date: todayStr(), totalSeconds, laps, incomplete: !!stoppedEarly && laps.length < SIM_STAGES.length });
+    saveSims(sims);
+    renderSimTrendChart(sims);
+    renderPastSims(sims);
+  }
+  document.getElementById('simCurrentStage').textContent = stoppedEarly
+    ? `Stopped after ${laps.length}/16 stages \u2014 logged ${fmtTime(totalSeconds)}`
+    : `Simulation complete: ${fmtTime(totalSeconds)}`;
+  simState = { running:false, stageIdx:0, startTime:0, stageStartTime:0, laps:[], interval:null };
+  updateSimButtons();
+}
+
+function simStop(){
+  if(!simState.running) return;
+  if(!confirm('Stop the simulation now? Your progress so far will be saved to your log.')) return;
+  simFinish(true);
+}
+
+function simReset(){
+  if(!simState.running) return;
+  if(!confirm('Reset the simulation? This discards your current run without saving it.')) return;
+  clearInterval(simState.interval);
+  simState = { running:false, stageIdx:0, startTime:0, stageStartTime:0, laps:[], interval:null };
+  document.getElementById('simTimerDisplay').textContent = '0:00';
+  document.getElementById('simCurrentStage').textContent = 'Ready to start \u2014 Stage 1: ' + SIM_STAGES[0].label;
+  updateSimButtons();
+}
+
+function renderSimTrendChart(sims){
+  const canvas = document.getElementById('simTrendChart');
+  const emptyEl = document.getElementById('simTrendEmpty');
+  if(!canvas) return;
+  if(simTrendChartInstance){ simTrendChartInstance.destroy(); simTrendChartInstance = null; }
+  if(!sims.length){
+    canvas.style.display = 'none';
+    if(emptyEl) emptyEl.style.display = 'block';
+    return;
+  }
+  canvas.style.display = 'block';
+  if(emptyEl) emptyEl.style.display = 'none';
+  const ordered = sims.slice();
+  simTrendChartInstance = new Chart(canvas.getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: ordered.map((s,i)=>s.date + (s.incomplete? ' (partial)':'')),
+      datasets: [{ label:'Total time (sec)', data: ordered.map(s=>Math.round(s.totalSeconds)), borderColor:'#3ddc97', backgroundColor:'rgba(61,220,151,0.15)', tension:0.25 }]
+    },
+    options: {
+      responsive:true,
+      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => fmtTime(ctx.raw) } } },
+      scales:{ y:{ ticks:{ color:'#9aa1ac', callback:v=>fmtTime(v) }, grid:{color:'#2a2e37'} }, x:{ ticks:{color:'#9aa1ac'}, grid:{display:false} } }
+    }
+  });
 }
 
 function renderPastSims(sims){
@@ -1010,7 +1090,8 @@ function renderPastSims(sims){
       const deltaStr = (delta>=0?'+':'') + Math.round(delta) + 's';
       return `<div class="sim-stage"><span class="stage-name">${lap.stage}</span><span class="stage-time">${fmtTime(lap.seconds)} <span style="color:${delta<=0?'var(--green)':'var(--yellow)'};font-size:0.75rem;">(${deltaStr})</span></span></div>`;
     }).join('');
-    return `<div class="chart-wrap"><h4>${sim.date} &mdash; Total: ${fmtTime(sim.totalSeconds)}</h4>${rows}</div>`;
+    const badge = sim.incomplete ? ` <span class="pill yellow">Stopped early \u2014 ${sim.laps.length}/16</span>` : '';
+    return `<div class="chart-wrap"><h4>${sim.date} &mdash; Total: ${fmtTime(sim.totalSeconds)}${badge}</h4>${rows}</div>`;
   }).join('');
 }
 

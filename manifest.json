@@ -1,0 +1,11 @@
+{
+  "name": "HYROX Cairo Training Program",
+  "short_name": "HYROX Cairo",
+  "description": "18-week HYROX competitive training tracker with check-ins, pacing calculator, and progress tracking.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f1115",
+  "theme_color": "#0f1115",
+  "orientation": "portrait",
+  "icons": []
+}

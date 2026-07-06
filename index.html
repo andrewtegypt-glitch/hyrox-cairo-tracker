@@ -83,7 +83,69 @@
   .checkpoint-nav{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 16px;}
   .cp-chip{padding:8px 14px;border-radius:14px;background:var(--card);border:1px solid var(--border);font-size:0.78rem;cursor:pointer;color:var(--muted);}
   .cp-chip.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;}
+
+  .main-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;}
+  .main-tabs::-webkit-scrollbar{display:none;}
+  .main-tab-btn{flex:0 0 auto;}
+  .sync-status{text-align:center;font-size:0.7rem;color:var(--muted);margin-top:4px;}
+  .sync-status.ok{color:var(--green);}
+  .sync-status.err{color:var(--yellow);}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px;}
+  .card h3{margin:0 0 10px;font-size:1rem;color:var(--accent2);}
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-size:0.78rem;color:var(--muted);margin-bottom:4px;}
+  .field input, .field select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--border);background:#0f1115;color:var(--text);font-size:0.9rem;}
+  .btn{display:inline-block;padding:9px 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:0.85rem;font-weight:600;cursor:pointer;}
+  .btn.secondary{background:var(--card);color:var(--text);border-color:var(--border);}
+  .btn.small{padding:6px 10px;font-size:0.75rem;}
+  .row-flex{display:flex;gap:10px;flex-wrap:wrap;}
+  .row-flex>*{flex:1;min-width:120px;}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+  .stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
+  .stat-box .num{font-size:1.6rem;font-weight:700;color:var(--accent2);}
+  .stat-box .lbl{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+  .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px;}
+  .chart-wrap h4{margin:0 0 10px;font-size:0.88rem;color:var(--text);}
+  .chart-wrap canvas{max-height:220px;}
+  .segment-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+  .segment-table th, .segment-table td{padding:7px 6px;border-bottom:1px solid var(--border);text-align:left;}
+  .segment-table th{color:var(--muted);font-weight:600;font-size:0.72rem;text-transform:uppercase;}
+  .segment-table td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  .cue-box{background:#1c2622;border:1px solid var(--green);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:0.8rem;line-height:1.5;}
+  .cue-box b{color:var(--green);}
+  .sim-stage{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+  .sim-stage:last-child{border-bottom:none;}
+  .sim-stage .stage-name{font-weight:600;}
+  .sim-stage .stage-time{color:var(--accent2);font-variant-numeric:tabular-nums;font-size:0.95rem;}
+  .sim-timer-display{text-align:center;font-size:2.4rem;font-weight:700;color:var(--accent2);margin:10px 0;font-variant-numeric:tabular-nums;}
+  .sim-current{text-align:center;font-size:0.95rem;color:var(--text);margin-bottom:10px;}
+  .log-entry{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.85rem;}
+  .log-entry:last-child{border-bottom:none;}
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.7rem;font-weight:600;margin-left:6px;}
+  .pill.green{background:var(--green);color:#06251a;}
+  .pill.yellow{background:var(--yellow);color:#2a2000;}
+  .pill.red{background:var(--red);color:#2a0000;}
+  .rpe-scale{display:flex;gap:4px;margin-top:4px;}
+  .rpe-btn{flex:1;padding:8px 0;text-align:center;border-radius:6px;border:1px solid var(--border);background:#20242c;color:var(--muted);cursor:pointer;font-size:0.78rem;}
+  .rpe-btn.sel{background:var(--accent2);color:#06251a;border-color:var(--accent2);font-weight:700;}
+  .banner-due{background:linear-gradient(135deg,#2a1f1f,#1a1d24);border:1px solid var(--accent);border-radius:12px;padding:12px 14px;margin:10px 16px;font-size:0.85rem;max-width:668px;margin-left:auto;margin-right:auto;}
+  .empty-note{color:var(--muted);font-size:0.82rem;text-align:center;padding:20px 0;}
+  .toggle-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+  .toggle-row:last-child{border-bottom:none;}
+  .switch{position:relative;width:44px;height:24px;flex-shrink:0;}
+  .switch input{opacity:0;width:0;height:0;}
+  .slider-toggle{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:24px;transition:.2s;}
+  .slider-toggle:before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s;}
+  input:checked + .slider-toggle{background:var(--green);}
+  input:checked + .slider-toggle:before{transform:translateX(20px);}
+  .day-chip-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+  .day-chip{padding:6px 10px;border-radius:10px;background:#20242c;border:1px solid var(--border);font-size:0.72rem;cursor:pointer;color:var(--muted);}
+  .day-chip.sel{background:var(--accent2);color:#06251a;border-color:var(--accent2);font-weight:700;}
 </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1115">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <header>
@@ -96,10 +158,8 @@
   <div class="progress-label" id="progressLabel">0% complete</div>
 </div>
 
-<div class="main-tabs">
-  <button class="main-tab-btn active" id="workoutsMainTab">Workouts</button>
-  <button class="main-tab-btn" id="checkinsMainTab">Check-Ins ★</button>
-</div>
+<div class="main-tabs" id="mainTabsBar"></div>
+<div class="sync-status" id="headerSyncStatus">Loading...</div>
 
 <div id="workoutsView">
   <div class="tabs" id="phaseTabs"></div>
@@ -124,6 +184,39 @@
   </main>
 </div>
 
+<div id="progressView" style="display:none;">
+  <main>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="num" id="streakNum">0</div><div class="lbl">Day streak</div></div>
+      <div class="stat-box"><div class="num" id="longestStreakNum">0</div><div class="lbl">Longest streak</div></div>
+    </div>
+    <div class="chart-wrap"><h4>Weekly completion (%)</h4><canvas id="weeklyChart"></canvas></div>
+    <div id="checkinTrendsContainer"></div>
+  </main>
+</div>
+
+<div id="raceplanView" style="display:none;">
+  <div class="tabs" id="racePlanSubTabs"></div>
+  <main>
+    <div id="pacingSub"></div>
+    <div id="strategySub" style="display:none;"></div>
+    <div id="simSub" style="display:none;"></div>
+  </main>
+</div>
+
+<div id="bodyView" style="display:none;">
+  <div class="tabs" id="bodySubTabs"></div>
+  <main>
+    <div id="weightSub"></div>
+    <div id="dailySub" style="display:none;"></div>
+  </main>
+</div>
+
+<div id="settingsView" style="display:none;">
+  <main></main>
+</div>
+
+
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('show')">✕</button>
@@ -135,29 +228,124 @@
   </div>
 </div>
 
+
 <script>
-const DATA = {"phaseMeta": [{"name": "Phase 1: Foundation", "weeks": [1, 2, 3, 4], "note": "Focus: building movement quality and an aerobic base from scratch. Keep everything controlled and pain-free."}, {"name": "Phase 2: Build", "weeks": [5, 6, 7, 8, 9, 10], "note": "Focus: progressive strength loading + introducing HYROX station skills and mini simulations. Week 10 is a deload."}, {"name": "Phase 3: HYROX-Specific", "weeks": [11, 12, 13, 14, 15], "note": "Focus: race-specific power, full station rehearsal, and pace-under-fatigue running. Week 15 includes your first full simulation."}, {"name": "Phase 4: Peak & Taper", "weeks": [16, 17, 18], "note": "Focus: one more full simulation, then taper volume while keeping intensity sharp. Week 18 is race week!"}], "weeksData": {"1": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "3x8"}, {"name": "Step Up", "sets": "3x6/leg"}, {"name": "Farmers Carry", "sets": "2x25m light"}, {"name": "Core: Plank", "sets": "3x20s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "20 min easy, conversational pace"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "3x8 light"}, {"name": "Hip Thrust", "sets": "3x10"}, {"name": "Farmers Carry", "sets": "2x25m light"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "15 min easy"}, {"name": "Wall Ball Shot", "sets": "3x8 technique, light ball"}, {"name": "Sled Push", "sets": "3x10m empty sled"}]}, {"title": "Light Circuit + Mobility", "exercises": [{"name": "Burpee Broad Jump", "sets": "3x6"}, {"name": "Sandbag Lunge", "sets": "2x6/leg light"}, {"name": "Rowing (Row Erg)", "sets": "8 min easy"}]}], "2": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "3x10"}, {"name": "Step Up", "sets": "3x8/leg"}, {"name": "Farmers Carry", "sets": "3x30m"}, {"name": "Core: Plank", "sets": "3x25s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "25 min easy"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "3x10"}, {"name": "Hip Thrust", "sets": "3x12"}, {"name": "Farmers Carry", "sets": "3x30m"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "18 min easy"}, {"name": "Wall Ball Shot", "sets": "3x10"}, {"name": "Sled Push", "sets": "4x12m light load"}]}, {"title": "Light Circuit + Mobility", "exercises": [{"name": "Burpee Broad Jump", "sets": "3x8"}, {"name": "Sandbag Lunge", "sets": "3x8/leg light"}, {"name": "Rowing (Row Erg)", "sets": "10 min easy"}]}], "3": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "4x10"}, {"name": "Step Up", "sets": "4x8/leg"}, {"name": "Farmers Carry", "sets": "3x35m"}, {"name": "Core: Plank", "sets": "3x30s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "30 min easy"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x10"}, {"name": "Hip Thrust", "sets": "4x12"}, {"name": "Farmers Carry", "sets": "3x35m"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "22 min easy"}, {"name": "Wall Ball Shot", "sets": "4x10"}, {"name": "Sled Push", "sets": "4x15m light-mod load"}]}, {"title": "Light Circuit + Mobility", "exercises": [{"name": "Burpee Broad Jump", "sets": "4x8"}, {"name": "Sandbag Lunge", "sets": "3x10/leg"}, {"name": "Rowing (Row Erg)", "sets": "12 min easy"}]}], "4": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "4x10 slightly heavier"}, {"name": "Step Up", "sets": "4x10/leg"}, {"name": "Farmers Carry", "sets": "3x40m"}, {"name": "Core: Plank", "sets": "3x35s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "35 min easy"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x10 heavier"}, {"name": "Hip Thrust", "sets": "4x14"}, {"name": "Farmers Carry", "sets": "3x40m"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "25 min easy"}, {"name": "Wall Ball Shot", "sets": "4x12"}, {"name": "Sled Push", "sets": "5x15m moderate load"}]}, {"title": "Light Circuit + Mobility (Deload)", "exercises": [{"name": "Burpee Broad Jump", "sets": "3x8 easy"}, {"name": "Sandbag Lunge", "sets": "3x8/leg easy"}, {"name": "Rowing (Row Erg)", "sets": "15 min very easy"}]}], "5": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x8 heavier"}, {"name": "Step Up", "sets": "4x8/leg with dumbbells"}, {"name": "Core: Plank", "sets": "3x40s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "40 min Zone 2"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x8 heavier"}, {"name": "Hip Thrust", "sets": "4x10"}, {"name": "Sandbag Lunge", "sets": "3x8/leg"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "400m"}, {"name": "SkiErg", "sets": "400m"}, {"name": "Sled Push", "sets": "20m mod load"}, {"name": "Burpee Broad Jump", "sets": "15 reps"}, {"name": "Repeat circuit", "sets": "x3 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "5x3min moderate, 2min easy"}, {"name": "Core: Plank", "sets": "3x40s"}]}], "6": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x8 heavier"}, {"name": "Step Up", "sets": "4x8/leg +load"}, {"name": "Core: Plank", "sets": "3x40s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "42 min Zone 2 + 1x3min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x8 heavier"}, {"name": "Hip Thrust", "sets": "4x10 heavier"}, {"name": "Sandbag Lunge", "sets": "3x10/leg"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "25m mod load"}, {"name": "Burpee Broad Jump", "sets": "18 reps"}, {"name": "Repeat circuit", "sets": "x3 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "6x3min moderate, 2min easy"}, {"name": "Core: Plank", "sets": "3x45s"}]}], "7": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x6 heavier"}, {"name": "Step Up", "sets": "4x10/leg +load"}, {"name": "Core: Weighted Plank", "sets": "3x40s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "45 min Zone 2 + 2x3min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x6 heavier"}, {"name": "Hip Thrust", "sets": "4x8 heavier"}, {"name": "Sandbag Lunge", "sets": "3x10/leg heavier"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "30m mod load"}, {"name": "Burpee Broad Jump", "sets": "20 reps"}, {"name": "Repeat circuit", "sets": "x4 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "6x4min moderate, 2min easy"}, {"name": "Core: Weighted Plank", "sets": "3x45s"}]}], "8": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x6 heavier"}, {"name": "Step Up", "sets": "4x10/leg +more load"}, {"name": "Core: Weighted Plank", "sets": "3x45s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "48 min Zone 2 + 2x4min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x6 heavier"}, {"name": "Hip Thrust", "sets": "4x8 heavier"}, {"name": "Sandbag Lunge", "sets": "4x10/leg"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "600m"}, {"name": "SkiErg", "sets": "600m"}, {"name": "Sled Push", "sets": "35m mod-heavy load"}, {"name": "Burpee Broad Jump", "sets": "20 reps"}, {"name": "Repeat circuit", "sets": "x4 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "7x4min moderate, 2min easy"}, {"name": "Core: Weighted Plank", "sets": "3x50s"}]}], "9": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x6 heaviest yet"}, {"name": "Step Up", "sets": "4x10/leg heaviest"}, {"name": "Core: Weighted Plank", "sets": "3x50s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "50 min Zone 2 + 2x5min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x6 heaviest"}, {"name": "Hip Thrust", "sets": "4x8 heaviest"}, {"name": "Sandbag Lunge", "sets": "4x10/leg heavier"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "700m"}, {"name": "SkiErg", "sets": "700m"}, {"name": "Sled Push", "sets": "40m mod-heavy load"}, {"name": "Burpee Broad Jump", "sets": "25 reps"}, {"name": "Repeat circuit", "sets": "x4 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "7x5min moderate, 2min easy"}, {"name": "Core: Weighted Plank", "sets": "3x50s"}]}], "10": [{"title": "Strength (Deload - Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "3x8 lighter"}, {"name": "Step Up", "sets": "3x8/leg lighter"}, {"name": "Core: Plank", "sets": "3x30s"}]}, {"title": "Engine Day (Deload)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "35 min easy Zone 2"}]}, {"title": "Strength (Deload - Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "3x8 lighter"}, {"name": "Hip Thrust", "sets": "3x10 lighter"}, {"name": "Sandbag Lunge", "sets": "3x8/leg lighter"}]}, {"title": "Light Mini Simulation (Deload)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "400m"}, {"name": "SkiErg", "sets": "400m"}, {"name": "Sled Push", "sets": "20m light"}, {"name": "Burpee Broad Jump", "sets": "12 reps"}, {"name": "Repeat circuit", "sets": "x2 rounds"}]}, {"title": "Easy Intervals + Mobility", "exercises": [{"name": "Running/Row intervals", "sets": "4x3min easy-moderate, 3min easy"}, {"name": "Core: Plank", "sets": "3x30s"}]}], "11": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x6 heavy"}, {"name": "Romanian Deadlift", "sets": "3x6 heavy"}, {"name": "Hip Thrust", "sets": "3x8 heavy"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "50 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "4x20m race weight"}, {"name": "Sled Pull", "sets": "4x20m race weight"}, {"name": "Wall Ball Shot", "sets": "4x15 reps"}, {"name": "Burpee Broad Jump", "sets": "4x12 reps"}]}, {"title": "Half HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "25m race weight"}, {"name": "Sled Pull", "sets": "25m race weight"}, {"name": "Burpee Broad Jump", "sets": "40m"}, {"name": "Sandbag Lunge", "sets": "50m"}, {"name": "Wall Ball Shot", "sets": "50 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "4x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x30m race weight"}]}], "12": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x6 heavier"}, {"name": "Romanian Deadlift", "sets": "3x6 heavier"}, {"name": "Hip Thrust", "sets": "3x8 heavier"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "52 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "5x20m race weight"}, {"name": "Sled Pull", "sets": "5x20m race weight"}, {"name": "Wall Ball Shot", "sets": "5x15 reps"}, {"name": "Burpee Broad Jump", "sets": "5x12 reps"}]}, {"title": "Half HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "600m"}, {"name": "SkiErg", "sets": "600m"}, {"name": "Sled Push", "sets": "30m race weight"}, {"name": "Sled Pull", "sets": "30m race weight"}, {"name": "Burpee Broad Jump", "sets": "50m"}, {"name": "Sandbag Lunge", "sets": "60m"}, {"name": "Wall Ball Shot", "sets": "60 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "5x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x40m race weight"}]}], "13": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x5 heaviest"}, {"name": "Romanian Deadlift", "sets": "3x5 heaviest"}, {"name": "Hip Thrust", "sets": "3x6 heaviest"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "55 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "5x25m race weight"}, {"name": "Sled Pull", "sets": "5x25m race weight"}, {"name": "Wall Ball Shot", "sets": "5x20 reps"}, {"name": "Burpee Broad Jump", "sets": "5x14 reps"}]}, {"title": "\u00be HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "800m"}, {"name": "SkiErg", "sets": "800m"}, {"name": "Sled Push", "sets": "40m race weight"}, {"name": "Sled Pull", "sets": "40m race weight"}, {"name": "Burpee Broad Jump", "sets": "60m"}, {"name": "Sandbag Lunge", "sets": "75m"}, {"name": "Wall Ball Shot", "sets": "75 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "5x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x50m race weight"}]}], "14": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x5 heaviest"}, {"name": "Romanian Deadlift", "sets": "3x5 heaviest"}, {"name": "Hip Thrust", "sets": "3x6 heaviest"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "58 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "6x25m race weight"}, {"name": "Sled Pull", "sets": "6x25m race weight"}, {"name": "Wall Ball Shot", "sets": "6x20 reps"}, {"name": "Burpee Broad Jump", "sets": "6x14 reps"}]}, {"title": "\u00be HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "900m"}, {"name": "SkiErg", "sets": "900m"}, {"name": "Sled Push", "sets": "45m race weight"}, {"name": "Sled Pull", "sets": "45m race weight"}, {"name": "Burpee Broad Jump", "sets": "70m"}, {"name": "Sandbag Lunge", "sets": "85m"}, {"name": "Wall Ball Shot", "sets": "85 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "6x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x60m race weight"}]}], "15": [{"title": "Heavy Strength (Slight Backoff)", "exercises": [{"name": "Goblet Squat", "sets": "3x5 moderate-heavy"}, {"name": "Romanian Deadlift", "sets": "3x5 moderate-heavy"}, {"name": "Hip Thrust", "sets": "3x6 moderate-heavy"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "55 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "5x25m race weight"}, {"name": "Sled Pull", "sets": "5x25m race weight"}, {"name": "Wall Ball Shot", "sets": "5x20 reps"}, {"name": "Burpee Broad Jump", "sets": "5x14 reps"}]}, {"title": "Full HYROX Simulation (Test 1)", "exercises": [{"name": "All 8 stations + 8x1km runs", "sets": "Full race distance, race weight, controlled pace"}]}, {"title": "Recovery Running", "exercises": [{"name": "Running", "sets": "3x1km easy-moderate pace"}, {"name": "Farmers Carry", "sets": "2x40m race weight"}]}], "16": [{"title": "Sharpening Strength", "exercises": [{"name": "Goblet Squat", "sets": "2x6 moderate"}, {"name": "Romanian Deadlift", "sets": "2x6 moderate"}]}, {"title": "Race-Pace Engine", "exercises": [{"name": "Rowing (Row Erg)", "sets": "35 min at race pace effort"}]}, {"title": "Full HYROX Simulation (Test 2)", "exercises": [{"name": "All 8 stations + 8x1km runs", "sets": "Full race distance at goal race pace"}]}, {"title": "Light Technique", "exercises": [{"name": "Wall Ball Shot", "sets": "3x15 light"}, {"name": "Sled Push", "sets": "3x15m light"}]}, {"title": "Easy Shakeout", "exercises": [{"name": "Rowing (Row Erg)", "sets": "20 min very easy"}]}], "17": [{"title": "Sharpening Strength (Reduced)", "exercises": [{"name": "Goblet Squat", "sets": "2x5 light-moderate"}, {"name": "Romanian Deadlift", "sets": "2x5 light-moderate"}]}, {"title": "Race-Pace Engine (Shorter)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "25 min at race pace effort"}]}, {"title": "Station Sharpening", "exercises": [{"name": "Sled Push", "sets": "3x20m race weight"}, {"name": "Wall Ball Shot", "sets": "3x20 reps"}, {"name": "Burpee Broad Jump", "sets": "3x10 reps"}]}, {"title": "Short Simulation (Half Volume)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "25m race weight"}, {"name": "Wall Ball Shot", "sets": "50 reps"}]}, {"title": "Easy Shakeout + Mobility", "exercises": [{"name": "Rowing (Row Erg)", "sets": "15 min very easy"}, {"name": "Mobility flow", "sets": "10 min"}]}], "18": [{"title": "Light Activation", "exercises": [{"name": "Goblet Squat", "sets": "2x5 very light"}, {"name": "Mobility flow", "sets": "10 min"}]}, {"title": "Short Easy Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "15 min easy"}]}, {"title": "Rest / Full Recovery", "exercises": [{"name": "Complete rest day", "sets": "Sleep, hydration, light stretching"}]}, {"title": "Race Prep Shakeout", "exercises": [{"name": "Light jog", "sets": "10 min easy"}, {"name": "Wall Ball Shot", "sets": "2x10 light"}, {"name": "Sled Push", "sets": "2x10m light"}]}, {"title": "RACE DAY - HYROX Cairo", "exercises": [{"name": "Full HYROX Race", "sets": "8km run + 8 stations - execute your race plan!"}]}]}, "images": {"Goblet Squat": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/35775b7ee0a2d84b967c433e30bb21af11120214.jpg", "Step Up": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b36cf8cd37e31920647d1ab223d47d5a76b8ab32.jpg", "Romanian Deadlift": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8952dd15979d6f4835ab5fc8ac3ca50917384644.jpg", "Hip Thrust": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/98681c036f869d71e18aaa70ec542bd87d3f7b2c.jpg", "Farmers Carry": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2a3121e0e1a446064cc8eee1189cb22e966e7b93.jpg", "Sled Push": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/23b8e617f3aa6032f7fa39ae4ee8244d405c6c4f.jpg", "Sled Pull": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f314469ee63812ab945a4f8bb8bfc22c3e99db8f.jpg", "Burpee Broad Jump": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7ca9768f7b641e5cbe679569f7fbf02a21da1030.jpg", "Wall Ball Shot": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5c3f2be6fa5915ee71f3f0ed7ce325eb6cb9786e.jpg", "SkiErg": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a544cbcacfe619bd8d99abdc3712b4ed7d38682b.jpg", "Rowing (Row Erg)": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/dd7babd4aba00439cef87c79d1e7b6ed4dd9eb23.jpg", "Sandbag Lunge": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/580cd790fead1b27a2f215ee4bb08dc65bb4cd80.jpg"}, "instructions": {"Goblet Squat": "Hold a dumbbell or kettlebell vertically at chest height. Feet shoulder-width apart, toes slightly out. Squat down keeping chest up and elbows brushing inside knees, drive through heels to stand.", "Step Up": "Place one foot fully on a box/bench. Drive through that heel to stand up onto the box, keeping torso upright. Step down with control. Alternate legs.", "Romanian Deadlift": "Hold dumbbells/barbell in front of thighs. Hinge at hips, pushing them back while keeping a slight knee bend and flat back. Lower until you feel a hamstring stretch, then drive hips forward to stand.", "Hip Thrust": "Upper back on a bench, barbell/dumbbell across hips. Feet flat, knees bent. Drive hips up until body forms a straight line from shoulders to knees, squeeze glutes at top, lower with control.", "Farmers Carry": "Hold a heavy dumbbell or kettlebell in each hand at your sides. Stand tall, brace your core, and walk with short controlled steps, keeping shoulders back.", "Sled Push": "Load a sled, grip the handles at hip/shoulder height, and drive through your legs in short powerful steps, staying low with a flat back to push the sled forward.", "Sled Pull": "Attach a rope/strap to the sled. Facing the sled, pull hand-over-hand while walking backward, or loop it around your waist and walk forward, keeping tension constant.", "Burpee Broad Jump": "Drop into a burpee (hands down, chest to floor or push-up), jump feet back in, then explode forward into a broad jump landing softly. Repeat immediately into the next rep.", "Wall Ball Shot": "Hold a medicine ball at chest height, squat down to at least parallel, then explode up and throw the ball to a target on the wall above head height. Catch and repeat.", "SkiErg": "Stand facing the machine, grip handles overhead, hinge at hips and pull handles down past hips in one fluid motion, using lats and core, then reset.", "Rowing (Row Erg)": "Legs push first, then lean back slightly, then pull handle to lower ribs with elbows close to body. Reverse the order to return: arms, body, then legs.", "Sandbag Lunge": "Hold a sandbag across the front of shoulders or on one shoulder. Step forward into a lunge, back knee toward the floor, drive through the front heel to step forward into the next lunge."}, "startDate": "2026-07-07", "checkins": {"4": {"title": "Checkpoint 1 - End of Foundation (Week 4)", "tests": [{"name": "2km Row Time Trial", "target": "Under 9:30 (competitive engine baseline)", "unit": "mm:ss"}, {"name": "Goblet Squat Max Reps (20kg, 2 min)", "target": "40+ reps unbroken form", "unit": "reps"}, {"name": "1km Run Time Trial", "target": "Under 5:30/km", "unit": "mm:ss"}, {"name": "Wall Ball Unbroken Set", "target": "20+ reps unbroken (6kg)", "unit": "reps"}, {"name": "Farmers Carry Max Distance (2x16kg)", "target": "100m+ unbroken", "unit": "meters"}]}, "9": {"title": "Checkpoint 2 - Mid Build (Week 9)", "tests": [{"name": "2km Row Time Trial", "target": "Under 8:45", "unit": "mm:ss"}, {"name": "Sled Push 50m (race weight)", "target": "Under 60 sec", "unit": "mm:ss"}, {"name": "1km Run Time Trial", "target": "Under 5:00/km", "unit": "mm:ss"}, {"name": "Wall Ball Unbroken Set (race ball weight)", "target": "40+ reps unbroken", "unit": "reps"}, {"name": "Burpee Broad Jump 80m", "target": "Under 2:30", "unit": "mm:ss"}]}, "14": {"title": "Checkpoint 3 - HYROX-Specific Peak (Week 14)", "tests": [{"name": "2km Row Time Trial", "target": "Under 8:15", "unit": "mm:ss"}, {"name": "Sled Push 50m (race weight)", "target": "Under 45 sec", "unit": "mm:ss"}, {"name": "Sled Pull 50m (race weight)", "target": "Under 50 sec", "unit": "mm:ss"}, {"name": "1km Run Time Trial (fatigued)", "target": "Under 4:45/km", "unit": "mm:ss"}, {"name": "100 Wall Balls (race weight)", "target": "Under 6:00, max 2 breaks", "unit": "mm:ss"}, {"name": "Sandbag Lunges 100m (race weight)", "target": "Under 3:00", "unit": "mm:ss"}]}, "17": {"title": "Checkpoint 4 - Final Race Readiness (Week 17)", "tests": [{"name": "Full HYROX Simulation Time", "target": "Sub 75 min (competitive Open target)", "unit": "mm:ss"}, {"name": "SkiErg 1000m", "target": "Under 4:15", "unit": "mm:ss"}, {"name": "Row 1000m", "target": "Under 4:00", "unit": "mm:ss"}, {"name": "100 Wall Balls (race weight)", "target": "Under 5:30, unbroken preferred", "unit": "mm:ss"}, {"name": "1km Run Splits (avg across 8)", "target": "Under 4:45/km average", "unit": "mm:ss"}]}}};
+const DATA = {"phaseMeta": [{"name": "Phase 1: Foundation", "weeks": [1, 2, 3, 4], "note": "Focus: building movement quality and an aerobic base from scratch. Keep everything controlled and pain-free."}, {"name": "Phase 2: Build", "weeks": [5, 6, 7, 8, 9, 10], "note": "Focus: progressive strength loading + introducing HYROX station skills and mini simulations. Week 10 is a deload."}, {"name": "Phase 3: HYROX-Specific", "weeks": [11, 12, 13, 14, 15], "note": "Focus: race-specific power, full station rehearsal, and pace-under-fatigue running. Week 15 includes your first full simulation."}, {"name": "Phase 4: Peak & Taper", "weeks": [16, 17, 18], "note": "Focus: one more full simulation, then taper volume while keeping intensity sharp. Week 18 is race week!"}], "weeksData": {"1": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "3x8"}, {"name": "Step Up", "sets": "3x6/leg"}, {"name": "Farmers Carry", "sets": "2x25m light"}, {"name": "Core: Plank", "sets": "3x20s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "20 min easy, conversational pace"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "3x8 light"}, {"name": "Hip Thrust", "sets": "3x10"}, {"name": "Farmers Carry", "sets": "2x25m light"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "15 min easy"}, {"name": "Wall Ball Shot", "sets": "3x8 technique, light ball"}, {"name": "Sled Push", "sets": "3x10m empty sled"}]}, {"title": "Light Circuit + Mobility", "exercises": [{"name": "Burpee Broad Jump", "sets": "3x6"}, {"name": "Sandbag Lunge", "sets": "2x6/leg light"}, {"name": "Rowing (Row Erg)", "sets": "8 min easy"}]}], "2": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "3x10"}, {"name": "Step Up", "sets": "3x8/leg"}, {"name": "Farmers Carry", "sets": "3x30m"}, {"name": "Core: Plank", "sets": "3x25s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "25 min easy"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "3x10"}, {"name": "Hip Thrust", "sets": "3x12"}, {"name": "Farmers Carry", "sets": "3x30m"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "18 min easy"}, {"name": "Wall Ball Shot", "sets": "3x10"}, {"name": "Sled Push", "sets": "4x12m light load"}]}, {"title": "Light Circuit + Mobility", "exercises": [{"name": "Burpee Broad Jump", "sets": "3x8"}, {"name": "Sandbag Lunge", "sets": "3x8/leg light"}, {"name": "Rowing (Row Erg)", "sets": "10 min easy"}]}], "3": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "4x10"}, {"name": "Step Up", "sets": "4x8/leg"}, {"name": "Farmers Carry", "sets": "3x35m"}, {"name": "Core: Plank", "sets": "3x30s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "30 min easy"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x10"}, {"name": "Hip Thrust", "sets": "4x12"}, {"name": "Farmers Carry", "sets": "3x35m"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "22 min easy"}, {"name": "Wall Ball Shot", "sets": "4x10"}, {"name": "Sled Push", "sets": "4x15m light-mod load"}]}, {"title": "Light Circuit + Mobility", "exercises": [{"name": "Burpee Broad Jump", "sets": "4x8"}, {"name": "Sandbag Lunge", "sets": "3x10/leg"}, {"name": "Rowing (Row Erg)", "sets": "12 min easy"}]}], "4": [{"title": "Full-Body Strength (Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "4x10 slightly heavier"}, {"name": "Step Up", "sets": "4x10/leg"}, {"name": "Farmers Carry", "sets": "3x40m"}, {"name": "Core: Plank", "sets": "3x35s"}]}, {"title": "Zone 2 Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "35 min easy"}]}, {"title": "Full-Body Strength (Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x10 heavier"}, {"name": "Hip Thrust", "sets": "4x14"}, {"name": "Farmers Carry", "sets": "3x40m"}]}, {"title": "Zone 2 + Technique", "exercises": [{"name": "SkiErg", "sets": "25 min easy"}, {"name": "Wall Ball Shot", "sets": "4x12"}, {"name": "Sled Push", "sets": "5x15m moderate load"}]}, {"title": "Light Circuit + Mobility (Deload)", "exercises": [{"name": "Burpee Broad Jump", "sets": "3x8 easy"}, {"name": "Sandbag Lunge", "sets": "3x8/leg easy"}, {"name": "Rowing (Row Erg)", "sets": "15 min very easy"}]}], "5": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x8 heavier"}, {"name": "Step Up", "sets": "4x8/leg with dumbbells"}, {"name": "Core: Plank", "sets": "3x40s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "40 min Zone 2"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x8 heavier"}, {"name": "Hip Thrust", "sets": "4x10"}, {"name": "Sandbag Lunge", "sets": "3x8/leg"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "400m"}, {"name": "SkiErg", "sets": "400m"}, {"name": "Sled Push", "sets": "20m mod load"}, {"name": "Burpee Broad Jump", "sets": "15 reps"}, {"name": "Repeat circuit", "sets": "x3 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "5x3min moderate, 2min easy"}, {"name": "Core: Plank", "sets": "3x40s"}]}], "6": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x8 heavier"}, {"name": "Step Up", "sets": "4x8/leg +load"}, {"name": "Core: Plank", "sets": "3x40s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "42 min Zone 2 + 1x3min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x8 heavier"}, {"name": "Hip Thrust", "sets": "4x10 heavier"}, {"name": "Sandbag Lunge", "sets": "3x10/leg"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "25m mod load"}, {"name": "Burpee Broad Jump", "sets": "18 reps"}, {"name": "Repeat circuit", "sets": "x3 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "6x3min moderate, 2min easy"}, {"name": "Core: Plank", "sets": "3x45s"}]}], "7": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x6 heavier"}, {"name": "Step Up", "sets": "4x10/leg +load"}, {"name": "Core: Weighted Plank", "sets": "3x40s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "45 min Zone 2 + 2x3min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x6 heavier"}, {"name": "Hip Thrust", "sets": "4x8 heavier"}, {"name": "Sandbag Lunge", "sets": "3x10/leg heavier"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "30m mod load"}, {"name": "Burpee Broad Jump", "sets": "20 reps"}, {"name": "Repeat circuit", "sets": "x4 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "6x4min moderate, 2min easy"}, {"name": "Core: Weighted Plank", "sets": "3x45s"}]}], "8": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x6 heavier"}, {"name": "Step Up", "sets": "4x10/leg +more load"}, {"name": "Core: Weighted Plank", "sets": "3x45s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "48 min Zone 2 + 2x4min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x6 heavier"}, {"name": "Hip Thrust", "sets": "4x8 heavier"}, {"name": "Sandbag Lunge", "sets": "4x10/leg"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "600m"}, {"name": "SkiErg", "sets": "600m"}, {"name": "Sled Push", "sets": "35m mod-heavy load"}, {"name": "Burpee Broad Jump", "sets": "20 reps"}, {"name": "Repeat circuit", "sets": "x4 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "7x4min moderate, 2min easy"}, {"name": "Core: Weighted Plank", "sets": "3x50s"}]}], "9": [{"title": "Strength (Squat Focus - Heavier)", "exercises": [{"name": "Goblet Squat", "sets": "4x6 heaviest yet"}, {"name": "Step Up", "sets": "4x10/leg heaviest"}, {"name": "Core: Weighted Plank", "sets": "3x50s"}]}, {"title": "Engine Day", "exercises": [{"name": "Rowing (Row Erg)", "sets": "50 min Zone 2 + 2x5min tempo"}]}, {"title": "Strength (Hinge/Pull Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "4x6 heaviest"}, {"name": "Hip Thrust", "sets": "4x8 heaviest"}, {"name": "Sandbag Lunge", "sets": "4x10/leg heavier"}]}, {"title": "Mini HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "700m"}, {"name": "SkiErg", "sets": "700m"}, {"name": "Sled Push", "sets": "40m mod-heavy load"}, {"name": "Burpee Broad Jump", "sets": "25 reps"}, {"name": "Repeat circuit", "sets": "x4 rounds"}]}, {"title": "Tempo Intervals + Core", "exercises": [{"name": "Running/Row intervals", "sets": "7x5min moderate, 2min easy"}, {"name": "Core: Weighted Plank", "sets": "3x50s"}]}], "10": [{"title": "Strength (Deload - Squat Focus)", "exercises": [{"name": "Goblet Squat", "sets": "3x8 lighter"}, {"name": "Step Up", "sets": "3x8/leg lighter"}, {"name": "Core: Plank", "sets": "3x30s"}]}, {"title": "Engine Day (Deload)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "35 min easy Zone 2"}]}, {"title": "Strength (Deload - Hinge Focus)", "exercises": [{"name": "Romanian Deadlift", "sets": "3x8 lighter"}, {"name": "Hip Thrust", "sets": "3x10 lighter"}, {"name": "Sandbag Lunge", "sets": "3x8/leg lighter"}]}, {"title": "Light Mini Simulation (Deload)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "400m"}, {"name": "SkiErg", "sets": "400m"}, {"name": "Sled Push", "sets": "20m light"}, {"name": "Burpee Broad Jump", "sets": "12 reps"}, {"name": "Repeat circuit", "sets": "x2 rounds"}]}, {"title": "Easy Intervals + Mobility", "exercises": [{"name": "Running/Row intervals", "sets": "4x3min easy-moderate, 3min easy"}, {"name": "Core: Plank", "sets": "3x30s"}]}], "11": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x6 heavy"}, {"name": "Romanian Deadlift", "sets": "3x6 heavy"}, {"name": "Hip Thrust", "sets": "3x8 heavy"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "50 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "4x20m race weight"}, {"name": "Sled Pull", "sets": "4x20m race weight"}, {"name": "Wall Ball Shot", "sets": "4x15 reps"}, {"name": "Burpee Broad Jump", "sets": "4x12 reps"}]}, {"title": "Half HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "25m race weight"}, {"name": "Sled Pull", "sets": "25m race weight"}, {"name": "Burpee Broad Jump", "sets": "40m"}, {"name": "Sandbag Lunge", "sets": "50m"}, {"name": "Wall Ball Shot", "sets": "50 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "4x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x30m race weight"}]}], "12": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x6 heavier"}, {"name": "Romanian Deadlift", "sets": "3x6 heavier"}, {"name": "Hip Thrust", "sets": "3x8 heavier"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "52 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "5x20m race weight"}, {"name": "Sled Pull", "sets": "5x20m race weight"}, {"name": "Wall Ball Shot", "sets": "5x15 reps"}, {"name": "Burpee Broad Jump", "sets": "5x12 reps"}]}, {"title": "Half HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "600m"}, {"name": "SkiErg", "sets": "600m"}, {"name": "Sled Push", "sets": "30m race weight"}, {"name": "Sled Pull", "sets": "30m race weight"}, {"name": "Burpee Broad Jump", "sets": "50m"}, {"name": "Sandbag Lunge", "sets": "60m"}, {"name": "Wall Ball Shot", "sets": "60 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "5x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x40m race weight"}]}], "13": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x5 heaviest"}, {"name": "Romanian Deadlift", "sets": "3x5 heaviest"}, {"name": "Hip Thrust", "sets": "3x6 heaviest"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "55 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "5x25m race weight"}, {"name": "Sled Pull", "sets": "5x25m race weight"}, {"name": "Wall Ball Shot", "sets": "5x20 reps"}, {"name": "Burpee Broad Jump", "sets": "5x14 reps"}]}, {"title": "\u00be HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "800m"}, {"name": "SkiErg", "sets": "800m"}, {"name": "Sled Push", "sets": "40m race weight"}, {"name": "Sled Pull", "sets": "40m race weight"}, {"name": "Burpee Broad Jump", "sets": "60m"}, {"name": "Sandbag Lunge", "sets": "75m"}, {"name": "Wall Ball Shot", "sets": "75 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "5x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x50m race weight"}]}], "14": [{"title": "Heavy Strength", "exercises": [{"name": "Goblet Squat", "sets": "3x5 heaviest"}, {"name": "Romanian Deadlift", "sets": "3x5 heaviest"}, {"name": "Hip Thrust", "sets": "3x6 heaviest"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "58 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "6x25m race weight"}, {"name": "Sled Pull", "sets": "6x25m race weight"}, {"name": "Wall Ball Shot", "sets": "6x20 reps"}, {"name": "Burpee Broad Jump", "sets": "6x14 reps"}]}, {"title": "\u00be HYROX Simulation", "exercises": [{"name": "Rowing (Row Erg)", "sets": "900m"}, {"name": "SkiErg", "sets": "900m"}, {"name": "Sled Push", "sets": "45m race weight"}, {"name": "Sled Pull", "sets": "45m race weight"}, {"name": "Burpee Broad Jump", "sets": "70m"}, {"name": "Sandbag Lunge", "sets": "85m"}, {"name": "Wall Ball Shot", "sets": "85 reps"}]}, {"title": "Speed/Threshold Running", "exercises": [{"name": "Running", "sets": "6x1km at target race pace"}, {"name": "Farmers Carry", "sets": "3x60m race weight"}]}], "15": [{"title": "Heavy Strength (Slight Backoff)", "exercises": [{"name": "Goblet Squat", "sets": "3x5 moderate-heavy"}, {"name": "Romanian Deadlift", "sets": "3x5 moderate-heavy"}, {"name": "Hip Thrust", "sets": "3x6 moderate-heavy"}]}, {"title": "Long Engine Session", "exercises": [{"name": "Rowing (Row Erg)", "sets": "55 min mixed Zone 2-3"}]}, {"title": "Station Technique + Power", "exercises": [{"name": "Sled Push", "sets": "5x25m race weight"}, {"name": "Sled Pull", "sets": "5x25m race weight"}, {"name": "Wall Ball Shot", "sets": "5x20 reps"}, {"name": "Burpee Broad Jump", "sets": "5x14 reps"}]}, {"title": "Full HYROX Simulation (Test 1)", "exercises": [{"name": "All 8 stations + 8x1km runs", "sets": "Full race distance, race weight, controlled pace"}]}, {"title": "Recovery Running", "exercises": [{"name": "Running", "sets": "3x1km easy-moderate pace"}, {"name": "Farmers Carry", "sets": "2x40m race weight"}]}], "16": [{"title": "Sharpening Strength", "exercises": [{"name": "Goblet Squat", "sets": "2x6 moderate"}, {"name": "Romanian Deadlift", "sets": "2x6 moderate"}]}, {"title": "Race-Pace Engine", "exercises": [{"name": "Rowing (Row Erg)", "sets": "35 min at race pace effort"}]}, {"title": "Full HYROX Simulation (Test 2)", "exercises": [{"name": "All 8 stations + 8x1km runs", "sets": "Full race distance at goal race pace"}]}, {"title": "Light Technique", "exercises": [{"name": "Wall Ball Shot", "sets": "3x15 light"}, {"name": "Sled Push", "sets": "3x15m light"}]}, {"title": "Easy Shakeout", "exercises": [{"name": "Rowing (Row Erg)", "sets": "20 min very easy"}]}], "17": [{"title": "Sharpening Strength (Reduced)", "exercises": [{"name": "Goblet Squat", "sets": "2x5 light-moderate"}, {"name": "Romanian Deadlift", "sets": "2x5 light-moderate"}]}, {"title": "Race-Pace Engine (Shorter)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "25 min at race pace effort"}]}, {"title": "Station Sharpening", "exercises": [{"name": "Sled Push", "sets": "3x20m race weight"}, {"name": "Wall Ball Shot", "sets": "3x20 reps"}, {"name": "Burpee Broad Jump", "sets": "3x10 reps"}]}, {"title": "Short Simulation (Half Volume)", "exercises": [{"name": "Rowing (Row Erg)", "sets": "500m"}, {"name": "SkiErg", "sets": "500m"}, {"name": "Sled Push", "sets": "25m race weight"}, {"name": "Wall Ball Shot", "sets": "50 reps"}]}, {"title": "Easy Shakeout + Mobility", "exercises": [{"name": "Rowing (Row Erg)", "sets": "15 min very easy"}, {"name": "Mobility flow", "sets": "10 min"}]}], "18": [{"title": "Light Activation", "exercises": [{"name": "Goblet Squat", "sets": "2x5 very light"}, {"name": "Mobility flow", "sets": "10 min"}]}, {"title": "Short Easy Cardio", "exercises": [{"name": "Rowing (Row Erg)", "sets": "15 min easy"}]}, {"title": "Rest / Full Recovery", "exercises": [{"name": "Complete rest day", "sets": "Sleep, hydration, light stretching"}]}, {"title": "Race Prep Shakeout", "exercises": [{"name": "Light jog", "sets": "10 min easy"}, {"name": "Wall Ball Shot", "sets": "2x10 light"}, {"name": "Sled Push", "sets": "2x10m light"}]}, {"title": "RACE DAY - HYROX Cairo", "exercises": [{"name": "Full HYROX Race", "sets": "8km run + 8 stations - execute your race plan!"}]}]}, "images": {"Goblet Squat": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/35775b7ee0a2d84b967c433e30bb21af11120214.jpg", "Step Up": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b36cf8cd37e31920647d1ab223d47d5a76b8ab32.jpg", "Romanian Deadlift": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8952dd15979d6f4835ab5fc8ac3ca50917384644.jpg", "Hip Thrust": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/98681c036f869d71e18aaa70ec542bd87d3f7b2c.jpg", "Farmers Carry": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2a3121e0e1a446064cc8eee1189cb22e966e7b93.jpg", "Sled Push": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/23b8e617f3aa6032f7fa39ae4ee8244d405c6c4f.jpg", "Sled Pull": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f314469ee63812ab945a4f8bb8bfc22c3e99db8f.jpg", "Burpee Broad Jump": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7ca9768f7b641e5cbe679569f7fbf02a21da1030.jpg", "Wall Ball Shot": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5c3f2be6fa5915ee71f3f0ed7ce325eb6cb9786e.jpg", "SkiErg": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a544cbcacfe619bd8d99abdc3712b4ed7d38682b.jpg", "Rowing (Row Erg)": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/dd7babd4aba00439cef87c79d1e7b6ed4dd9eb23.jpg", "Sandbag Lunge": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/580cd790fead1b27a2f215ee4bb08dc65bb4cd80.jpg"}, "instructions": {"Goblet Squat": "Hold a dumbbell or kettlebell vertically at chest height. Feet shoulder-width apart, toes slightly out. Squat down keeping chest up and elbows brushing inside knees, drive through heels to stand.", "Step Up": "Place one foot fully on a box/bench. Drive through that heel to stand up onto the box, keeping torso upright. Step down with control. Alternate legs.", "Romanian Deadlift": "Hold dumbbells/barbell in front of thighs. Hinge at hips, pushing them back while keeping a slight knee bend and flat back. Lower until you feel a hamstring stretch, then drive hips forward to stand.", "Hip Thrust": "Upper back on a bench, barbell/dumbbell across hips. Feet flat, knees bent. Drive hips up until body forms a straight line from shoulders to knees, squeeze glutes at top, lower with control.", "Farmers Carry": "Hold a heavy dumbbell or kettlebell in each hand at your sides. Stand tall, brace your core, and walk with short controlled steps, keeping shoulders back.", "Sled Push": "Load a sled, grip the handles at hip/shoulder height, and drive through your legs in short powerful steps, staying low with a flat back to push the sled forward.", "Sled Pull": "Attach a rope/strap to the sled. Facing the sled, pull hand-over-hand while walking backward, or loop it around your waist and walk forward, keeping tension constant.", "Burpee Broad Jump": "Drop into a burpee (hands down, chest to floor or push-up), jump feet back in, then explode forward into a broad jump landing softly. Repeat immediately into the next rep.", "Wall Ball Shot": "Hold a medicine ball at chest height, squat down to at least parallel, then explode up and throw the ball to a target on the wall above head height. Catch and repeat.", "SkiErg": "Stand facing the machine, grip handles overhead, hinge at hips and pull handles down past hips in one fluid motion, using lats and core, then reset.", "Rowing (Row Erg)": "Legs push first, then lean back slightly, then pull handle to lower ribs with elbows close to body. Reverse the order to return: arms, body, then legs.", "Sandbag Lunge": "Hold a sandbag across the front of shoulders or on one shoulder. Step forward into a lunge, back knee toward the floor, drive through the front heel to step forward into the next lunge."}, "startDate": "2026-07-07", "checkins": {"4": {"title": "Checkpoint 1 - End of Foundation (Week 4)", "tests": [{"name": "2km Row Time Trial", "target": "Under 9:30 (competitive engine baseline)", "unit": "mm:ss", "targetSeconds": 570, "direction": "lower"}, {"name": "Goblet Squat Max Reps (20kg, 2 min)", "target": "40+ reps unbroken form", "unit": "reps", "targetReps": 40, "direction": "higher"}, {"name": "1km Run Time Trial", "target": "Under 5:30/km", "unit": "mm:ss", "targetSeconds": 330, "direction": "lower"}, {"name": "Wall Ball Unbroken Set", "target": "20+ reps unbroken (6kg)", "unit": "reps", "targetReps": 20, "direction": "higher"}, {"name": "Farmers Carry Max Distance (2x16kg)", "target": "100m+ unbroken", "unit": "meters", "targetMeters": 100, "direction": "higher"}]}, "9": {"title": "Checkpoint 2 - Mid Build (Week 9)", "tests": [{"name": "2km Row Time Trial", "target": "Under 8:45", "unit": "mm:ss", "targetSeconds": 525, "direction": "lower"}, {"name": "Sled Push 50m (race weight)", "target": "Under 60 sec", "unit": "mm:ss", "targetSeconds": 60, "direction": "lower"}, {"name": "1km Run Time Trial", "target": "Under 5:00/km", "unit": "mm:ss", "targetSeconds": 300, "direction": "lower"}, {"name": "Wall Ball Unbroken Set (race ball weight)", "target": "40+ reps unbroken", "unit": "reps", "targetReps": 40, "direction": "higher"}, {"name": "Burpee Broad Jump 80m", "target": "Under 2:30", "unit": "mm:ss", "targetSeconds": 150, "direction": "lower"}]}, "14": {"title": "Checkpoint 3 - HYROX-Specific Peak (Week 14)", "tests": [{"name": "2km Row Time Trial", "target": "Under 8:15", "unit": "mm:ss", "targetSeconds": 495, "direction": "lower"}, {"name": "Sled Push 50m (race weight)", "target": "Under 45 sec", "unit": "mm:ss", "targetSeconds": 45, "direction": "lower"}, {"name": "Sled Pull 50m (race weight)", "target": "Under 50 sec", "unit": "mm:ss", "targetSeconds": 50, "direction": "lower"}, {"name": "1km Run Time Trial (fatigued)", "target": "Under 4:45/km", "unit": "mm:ss", "targetSeconds": 285, "direction": "lower"}, {"name": "100 Wall Balls (race weight)", "target": "Under 6:00, max 2 breaks", "unit": "mm:ss", "targetSeconds": 360, "direction": "lower"}, {"name": "Sandbag Lunges 100m (race weight)", "target": "Under 3:00", "unit": "mm:ss", "targetSeconds": 180, "direction": "lower"}]}, "17": {"title": "Checkpoint 4 - Final Race Readiness (Week 17)", "tests": [{"name": "Full HYROX Simulation Time", "target": "Sub 75 min (competitive Open target)", "unit": "mm:ss", "targetSeconds": 4500, "direction": "lower"}, {"name": "SkiErg 1000m", "target": "Under 4:15", "unit": "mm:ss", "targetSeconds": 255, "direction": "lower"}, {"name": "Row 1000m", "target": "Under 4:00", "unit": "mm:ss", "targetSeconds": 240, "direction": "lower"}, {"name": "100 Wall Balls (race weight)", "target": "Under 5:30, unbroken preferred", "unit": "mm:ss", "targetSeconds": 330, "direction": "lower"}, {"name": "1km Run Splits (avg across 8)", "target": "Under 4:45/km average", "unit": "mm:ss", "targetSeconds": 285, "direction": "lower"}]}}, "pacingAnchors": {"source": "https://hyroxdatalab.com/articles/hyrox-pacing-calculator-guide", "anchors": [{"goalSeconds": 4200, "runPace": 270, "skierg": 230, "sledPush": 150, "sledPull": 180, "burpees": 270, "row": 230, "farmers": 115, "lunges": 255, "wallballs": 270, "roxzoneTotal": 300}, {"goalSeconds": 5400, "runPace": 325, "skierg": 270, "sledPush": 210, "sledPull": 240, "burpees": 360, "row": 285, "farmers": 150, "lunges": 330, "wallballs": 390, "roxzoneTotal": 540}, {"goalSeconds": 7200, "runPace": 390, "skierg": 360, "sledPush": 300, "sledPull": 360, "burpees": 540, "row": 360, "farmers": 240, "lunges": 480, "wallballs": 480, "roxzoneTotal": 660}]}};
+
+/* ---------- Supabase cloud sync ---------- */
+const SUPABASE_URL = 'https://cofyxbbkdkmzldfdfcyt.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvZnl4YmJrZGttemxkZmRmY3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5NTE1NzIsImV4cCI6MjA5MjUyNzU3Mn0.VmUqD0Eo0w05Y0JNBWP1yftejDYqOdLgC2fGpzQTgq4';
+let supabaseClient = null;
+try{
+  if(window.supabase && SUPABASE_URL.indexOf('http') === 0){
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+}catch(e){ console.warn('Supabase init failed', e); }
+
 const STORAGE_KEY = 'hyrox_progress_v2';
 const CHECKIN_KEY = 'hyrox_checkins_v1';
+const WEIGHT_KEY = 'hyrox_weight_v1';
+const DAILYLOG_KEY = 'hyrox_dailylog_v1';
+const SIM_KEY = 'hyrox_sims_v1';
+const SETTINGS_KEY = 'hyrox_settings_v1';
+const COMPLETION_DATES_KEY = 'hyrox_completion_dates_v1';
+const SYNC_KEYS = [STORAGE_KEY, CHECKIN_KEY, WEIGHT_KEY, DAILYLOG_KEY, SIM_KEY, SETTINGS_KEY, COMPLETION_DATES_KEY];
+
+function loadJSON(key, fallback){
+  try{ const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : (fallback===undefined?{}:fallback); }
+  catch(e){ return fallback===undefined?{}:fallback; }
+}
+function saveJSON(key, value){
+  localStorage.setItem(key, JSON.stringify(value));
+  localStorage.setItem(key+'__ts', String(Date.now()));
+  pushToCloud(key, value);
+}
+function localTs(key){
+  return Number(localStorage.getItem(key+'__ts') || 0);
+}
+
+let syncState = 'idle';
+function setSyncStatus(state, msg){
+  syncState = state;
+  document.querySelectorAll('.sync-status').forEach(el=>{
+    el.textContent = msg;
+    el.className = 'sync-status ' + (state==='ok'?'ok':state==='err'?'err':'');
+  });
+}
+
+async function pushToCloud(key, value){
+  if(!supabaseClient) return;
+  try{
+    const ts = localTs(key) || Date.now();
+    await supabaseClient.from('app_state').upsert({ key, data: value, updated_at: ts });
+  }catch(e){ console.warn('push failed', key, e); }
+}
+
+async function pullAllFromCloud(){
+  if(!supabaseClient){ setSyncStatus('err', 'Local only (no cloud connection)'); return; }
+  setSyncStatus('idle', 'Syncing...');
+  try{
+    const { data, error } = await supabaseClient.from('app_state').select('key,data,updated_at').in('key', SYNC_KEYS);
+    if(error) throw error;
+    let changed = false;
+    (data||[]).forEach(row=>{
+      const cloudTs = Number(row.updated_at||0);
+      const localTime = localTs(row.key);
+      if(cloudTs > localTime){
+        localStorage.setItem(row.key, JSON.stringify(row.data));
+        localStorage.setItem(row.key+'__ts', String(cloudTs));
+        changed = true;
+      }else if(localTime > cloudTs && localStorage.getItem(row.key) !== null){
+        pushToCloud(row.key, loadJSON(row.key));
+      }
+    });
+    // push any local keys never seen in cloud
+    const cloudKeys = new Set((data||[]).map(r=>r.key));
+    SYNC_KEYS.forEach(k=>{
+      if(!cloudKeys.has(k) && localStorage.getItem(k) !== null){
+        pushToCloud(k, loadJSON(k));
+      }
+    });
+    setSyncStatus('ok', 'Synced across devices');
+    if(changed) render();
+  }catch(e){
+    console.warn('pull failed', e);
+    setSyncStatus('err', 'Local only (sync failed)');
+  }
+}
+function manualSync(){ pullAllFromCloud(); }
+
+/* ---------- workout progress (existing, adapted) ---------- */
+function loadProgress(){ return loadJSON(STORAGE_KEY, {}); }
+function saveProgress(p){ saveJSON(STORAGE_KEY, p); }
+function loadCheckins(){ return loadJSON(CHECKIN_KEY, {}); }
+function saveCheckins(c){ saveJSON(CHECKIN_KEY, c); }
+function loadWeights(){ return loadJSON(WEIGHT_KEY, []); }
+function saveWeights(w){ saveJSON(WEIGHT_KEY, w); }
+function loadDailyLogs(){ return loadJSON(DAILYLOG_KEY, []); }
+function saveDailyLogs(l){ saveJSON(DAILYLOG_KEY, l); }
+function loadSims(){ return loadJSON(SIM_KEY, []); }
+function saveSims(s){ saveJSON(SIM_KEY, s); }
+function loadSettings(){ return loadJSON(SETTINGS_KEY, { remindersOn:false, remindTime:'18:00', remindDays:[1,2,3,4,5,6,0] }); }
+function saveSettings(s){ saveJSON(SETTINGS_KEY, s); }
+function loadCompletionDates(){ return loadJSON(COMPLETION_DATES_KEY, {}); }
+function saveCompletionDates(d){ saveJSON(COMPLETION_DATES_KEY, d); }
+
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
 const ALL_WEEKS = Object.keys(DATA.weeksData).map(Number).sort((a,b)=>a-b);
 const CHECKPOINT_WEEKS = Object.keys(DATA.checkins).map(Number).sort((a,b)=>a-b);
 let currentPhase = 0;
 let currentWeek = DATA.phaseMeta[0].weeks[0];
 let currentCheckpoint = CHECKPOINT_WEEKS[0];
 let activeView = 'workouts';
+let raceplanSub = 'pacing';
+let bodySub = 'weight';
 
-function loadProgress(){
-  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; }
-}
-function saveProgress(p){ localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
-function loadCheckins(){
-  try{ return JSON.parse(localStorage.getItem(CHECKIN_KEY)) || {}; }catch(e){ return {}; }
-}
-function saveCheckins(c){ localStorage.setItem(CHECKIN_KEY, JSON.stringify(c)); }
-
-function phaseIndexForWeek(w){
-  return DATA.phaseMeta.findIndex(ph => ph.weeks.includes(w));
-}
+function phaseIndexForWeek(w){ return DATA.phaseMeta.findIndex(ph => ph.weeks.includes(w)); }
 
 function isWeekComplete(w){
   const progress = loadProgress();
@@ -172,16 +360,51 @@ function isWeekComplete(w){
   });
   return total>0 && done===total;
 }
+function weekCompletionPct(w){
+  const progress = loadProgress();
+  const days = DATA.weeksData[w];
+  let total=0, done=0;
+  days.forEach((day, dIdx)=>{
+    day.exercises.forEach((ex,eIdx)=>{
+      total++;
+      const key = `w${w}_d${dIdx}_e${eIdx}`;
+      if(progress[key]) done++;
+    });
+  });
+  return total? Math.round((done/total)*100) : 0;
+}
 
-document.getElementById('workoutsMainTab').onclick = () => { activeView='workouts'; renderMainTabs(); };
-document.getElementById('checkinsMainTab').onclick = () => { activeView='checkins'; renderMainTabs(); };
+const MAIN_TABS = [
+  {id:'workouts', label:'Workouts'},
+  {id:'checkins', label:'Check-Ins \u2605'},
+  {id:'progress', label:'Progress'},
+  {id:'raceplan', label:'Race Plan'},
+  {id:'body', label:'Body & Log'},
+  {id:'settings', label:'Settings'}
+];
+
+function renderMainTabsBar(){
+  const wrap = document.getElementById('mainTabsBar');
+  wrap.innerHTML = '';
+  MAIN_TABS.forEach(t=>{
+    const btn = document.createElement('button');
+    btn.className = 'main-tab-btn' + (activeView===t.id ? ' active':'');
+    btn.textContent = t.label;
+    btn.onclick = () => { activeView = t.id; renderMainTabs(); };
+    wrap.appendChild(btn);
+  });
+}
 
 function renderMainTabs(){
-  document.getElementById('workoutsMainTab').classList.toggle('active', activeView==='workouts');
-  document.getElementById('checkinsMainTab').classList.toggle('active', activeView==='checkins');
-  document.getElementById('workoutsView').style.display = activeView==='workouts' ? 'block' : 'none';
-  document.getElementById('checkinsView').style.display = activeView==='checkins' ? 'block' : 'none';
+  renderMainTabsBar();
+  ['workouts','checkins','progress','raceplan','body','settings'].forEach(v=>{
+    document.getElementById(v+'View').style.display = (activeView===v) ? 'block' : 'none';
+  });
   if(activeView==='checkins'){ renderCheckinNav(); renderCheckinContent(); }
+  if(activeView==='progress'){ renderProgressView(); }
+  if(activeView==='raceplan'){ renderRacePlanView(); }
+  if(activeView==='body'){ renderBodyView(); }
+  if(activeView==='settings'){ renderSettingsView(); }
 }
 
 function renderTabs(){
@@ -223,10 +446,12 @@ function renderDays(){
   document.getElementById('prevWeekBtn').disabled = idxInAll <= 0;
   document.getElementById('nextWeekBtn').disabled = idxInAll >= ALL_WEEKS.length-1;
 
+  renderDueBanner();
+
   if(CHECKPOINT_WEEKS.includes(currentWeek)){
     const banner = document.createElement('div');
     banner.className = 'checkin-banner';
-    banner.innerHTML = `★ <b>${DATA.checkins[currentWeek].title}</b> is scheduled this week. Go to the Check-Ins tab to log your test results.`;
+    banner.innerHTML = `\u2605 <b>${DATA.checkins[currentWeek].title}</b> is scheduled this week. Go to the Check-Ins tab to log your test results.`;
     container.appendChild(banner);
   }
 
@@ -256,6 +481,7 @@ function renderDays(){
         const p = loadProgress();
         p[key] = cb.checked;
         saveProgress(p);
+        markCompletionDate(key, cb.checked);
         updateNameClass(nameSpan, setsSpan, cb.checked);
         updateProgressBar();
         renderWeeks();
@@ -285,6 +511,21 @@ function renderDays(){
     card.appendChild(list);
     container.appendChild(card);
   });
+}
+
+function markCompletionDate(exKey, isChecked){
+  const dates = loadCompletionDates();
+  const today = todayStr();
+  if(isChecked){
+    if(!dates[today]) dates[today] = [];
+    if(!dates[today].includes(exKey)) dates[today].push(exKey);
+  }else{
+    if(dates[today]){
+      dates[today] = dates[today].filter(k=>k!==exKey);
+      if(dates[today].length===0) delete dates[today];
+    }
+  }
+  saveCompletionDates(dates);
 }
 
 function updateNameClass(nameSpan, setsSpan, checked){
@@ -322,6 +563,9 @@ function updateProgressBar(){
 function resetProgress(){
   if(confirm('Reset all checked progress? This cannot be undone.')){
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(COMPLETION_DATES_KEY);
+    pushToCloud(STORAGE_KEY, {});
+    pushToCloud(COMPLETION_DATES_KEY, {});
     render();
   }
 }
@@ -334,6 +578,48 @@ document.getElementById('nextWeekBtn').onclick = () => {
   const idx = ALL_WEEKS.indexOf(currentWeek);
   if(idx<ALL_WEEKS.length-1){ currentWeek = ALL_WEEKS[idx+1]; currentPhase = phaseIndexForWeek(currentWeek); render(); }
 };
+
+/* ---------- Check-ins with auto-scoring ---------- */
+function parseTimeToSeconds(str){
+  if(!str) return null;
+  const parts = String(str).trim().split(':');
+  if(parts.length===2){
+    const m = parseInt(parts[0],10), s = parseInt(parts[1],10);
+    if(isNaN(m)||isNaN(s)) return null;
+    return m*60+s;
+  }
+  const n = parseFloat(str);
+  return isNaN(n) ? null : n;
+}
+function parseNumber(str){
+  const n = parseFloat(str);
+  return isNaN(n) ? null : n;
+}
+function computeAutoStatus(test, resultStr){
+  if(!resultStr) return '';
+  let resultVal, targetVal, direction = test.direction || 'lower';
+  if(test.unit === 'mm:ss'){
+    resultVal = parseTimeToSeconds(resultStr);
+    targetVal = test.targetSeconds;
+  }else if(test.unit === 'reps'){
+    resultVal = parseNumber(resultStr);
+    targetVal = test.targetReps;
+  }else if(test.unit === 'meters'){
+    resultVal = parseNumber(resultStr);
+    targetVal = test.targetMeters;
+  }
+  if(resultVal===null || targetVal===undefined) return '';
+  let ratio;
+  if(direction === 'lower'){
+    if(resultVal <= targetVal) return 'green';
+    ratio = (resultVal - targetVal) / targetVal;
+    return ratio <= 0.10 ? 'yellow' : 'red';
+  }else{
+    if(resultVal >= targetVal) return 'green';
+    ratio = (targetVal - resultVal) / targetVal;
+    return ratio <= 0.10 ? 'yellow' : 'red';
+  }
+}
 
 function renderCheckinNav(){
   const wrap = document.getElementById('checkpointNav');
@@ -359,7 +645,7 @@ function renderCheckinContent(){
   card.className = 'checkin-card';
   const header = document.createElement('div');
   header.className = 'checkin-header';
-  header.innerHTML = `<h3>${cp.title}</h3><p>Log your result for each test, then mark how you're tracking against the target.</p>`;
+  header.innerHTML = `<h3>${cp.title}</h3><p>Log your result &mdash; status is calculated automatically against the target.</p>`;
   card.appendChild(header);
 
   const list = document.createElement('div');
@@ -388,32 +674,21 @@ function renderCheckinContent(){
     input.oninput = () => {
       const data = loadCheckins();
       data[cpKey][tKey].result = input.value;
+      data[cpKey][tKey].status = computeAutoStatus(test, input.value);
       saveCheckins(data);
+      renderCheckinContent();
     };
     inputWrap.appendChild(label);
     inputWrap.appendChild(input);
     item.appendChild(inputWrap);
 
-    const statusRow = document.createElement('div');
-    statusRow.className = 'status-row';
-    const statuses = [
-      {key:'red', label:'Behind'},
-      {key:'yellow', label:'Close'},
-      {key:'green', label:'On Track'}
-    ];
-    statuses.forEach(s => {
-      const btn = document.createElement('div');
-      btn.className = 'status-btn' + (savedData[cpKey][tKey].status===s.key ? ' sel-'+s.key : '');
-      btn.textContent = s.label;
-      btn.onclick = () => {
-        const data = loadCheckins();
-        data[cpKey][tKey].status = s.key;
-        saveCheckins(data);
-        renderCheckinContent();
-      };
-      statusRow.appendChild(btn);
-    });
-    item.appendChild(statusRow);
+    const status = savedData[cpKey][tKey].status;
+    if(status){
+      const pill = document.createElement('span');
+      pill.className = 'pill ' + status;
+      pill.textContent = status==='green' ? 'On Track' : status==='yellow' ? 'Close' : 'Behind';
+      top.querySelector('div').appendChild(pill);
+    }
 
     list.appendChild(item);
   });
@@ -423,6 +698,555 @@ function renderCheckinContent(){
   saveCheckins(savedData);
 }
 
+/* ---------- Progress view: streak + weekly chart + checkin trends ---------- */
+let weeklyChartInstance = null;
+let trendChartInstances = [];
+
+function computeStreaks(){
+  const dates = loadCompletionDates();
+  const dateKeys = Object.keys(dates).filter(k=>dates[k] && dates[k].length>0).sort();
+  if(dateKeys.length===0) return {current:0, longest:0};
+  const dateSet = new Set(dateKeys);
+  // current streak: walk back from today
+  let current = 0;
+  let d = new Date();
+  while(true){
+    const key = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    if(dateSet.has(key)){ current++; d.setDate(d.getDate()-1); }
+    else break;
+  }
+  // longest streak
+  let longest = 0, run = 0, prev = null;
+  dateKeys.forEach(k=>{
+    const dt = new Date(k+'T00:00:00');
+    if(prev){
+      const diffDays = Math.round((dt-prev)/86400000);
+      if(diffDays===1) run++; else run=1;
+    }else run=1;
+    longest = Math.max(longest, run);
+    prev = dt;
+  });
+  return {current, longest};
+}
+
+function renderProgressView(){
+  const streaks = computeStreaks();
+  document.getElementById('streakNum').textContent = streaks.current;
+  document.getElementById('longestStreakNum').textContent = streaks.longest;
+
+  const ctx = document.getElementById('weeklyChart').getContext('2d');
+  const labels = ALL_WEEKS.map(w=>'W'+w);
+  const values = ALL_WEEKS.map(w=>weekCompletionPct(w));
+  if(weeklyChartInstance) weeklyChartInstance.destroy();
+  weeklyChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: { labels, datasets: [{ label:'% complete', data: values, backgroundColor:'#3ddc97' }] },
+    options: {
+      responsive:true,
+      plugins:{ legend:{display:false} },
+      scales:{ y:{ min:0, max:100, ticks:{color:'#9aa1ac'}, grid:{color:'#2a2e37'} }, x:{ ticks:{color:'#9aa1ac'}, grid:{display:false} } }
+    }
+  });
+
+  trendChartInstances.forEach(c=>c.destroy());
+  trendChartInstances = [];
+  const container = document.getElementById('checkinTrendsContainer');
+  container.innerHTML = "<div class='chart-wrap'><h4>Checkpoint test trends</h4><p style='font-size:0.78rem;color:var(--muted);margin:0 0 10px;'>Tracks each test's numeric result across the 4 checkpoints (lower is faster for time-based tests).</p></div>";
+
+  const savedData = loadCheckins();
+  const testNames = new Set();
+  CHECKPOINT_WEEKS.forEach(w=>{ DATA.checkins[w].tests.forEach(t=>testNames.add(t.name)); });
+
+  testNames.forEach(name=>{
+    const points = [];
+    const labelsCp = [];
+    CHECKPOINT_WEEKS.forEach(w=>{
+      const cp = DATA.checkins[w];
+      const tIdx = cp.tests.findIndex(t=>t.name===name);
+      if(tIdx===-1) return;
+      const test = cp.tests[tIdx];
+      const cpKey = 'cp'+w;
+      const entry = savedData[cpKey] && savedData[cpKey]['t'+tIdx];
+      labelsCp.push('Wk'+w);
+      if(entry && entry.result){
+        let val;
+        if(test.unit==='mm:ss') val = parseTimeToSeconds(entry.result);
+        else val = parseNumber(entry.result);
+        points.push(val);
+      }else{
+        points.push(null);
+      }
+    });
+    if(points.every(p=>p===null)) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'chart-wrap';
+    wrap.innerHTML = `<h4>${name}</h4><canvas></canvas>`;
+    container.appendChild(wrap);
+    const canvas = wrap.querySelector('canvas');
+    const chart = new Chart(canvas.getContext('2d'), {
+      type:'line',
+      data:{ labels: labelsCp, datasets:[{ label:name, data:points, borderColor:'#ff4d4d', backgroundColor:'rgba(255,77,77,0.15)', spanGaps:true, tension:0.25 }] },
+      options:{ responsive:true, plugins:{legend:{display:false}}, scales:{ y:{ ticks:{color:'#9aa1ac'}, grid:{color:'#2a2e37'} }, x:{ ticks:{color:'#9aa1ac'}, grid:{display:false} } } }
+    });
+    trendChartInstances.push(chart);
+  });
+
+  if(container.children.length<=1){
+    const note = document.createElement('div');
+    note.className = 'empty-note';
+    note.textContent = 'Log some check-in results to see trend charts here.';
+    container.appendChild(note);
+  }
+}
+
+/* ---------- Race Plan: pacing calculator + strategy + simulation ---------- */
+function interpolatePacing(goalSeconds){
+  const anchors = DATA.pacingAnchors.anchors.slice().sort((a,b)=>a.goalSeconds-b.goalSeconds);
+  const keys = ['runPace','skierg','sledPush','sledPull','burpees','row','farmers','lunges','wallballs','roxzoneTotal'];
+  let lo, hi;
+  if(goalSeconds <= anchors[0].goalSeconds){ lo = anchors[0]; hi = anchors[1]; }
+  else if(goalSeconds >= anchors[anchors.length-1].goalSeconds){ lo = anchors[anchors.length-2]; hi = anchors[anchors.length-1]; }
+  else{
+    for(let i=0;i<anchors.length-1;i++){
+      if(goalSeconds>=anchors[i].goalSeconds && goalSeconds<=anchors[i+1].goalSeconds){ lo=anchors[i]; hi=anchors[i+1]; break; }
+    }
+  }
+  const frac = (goalSeconds - lo.goalSeconds) / (hi.goalSeconds - lo.goalSeconds);
+  const result = {};
+  keys.forEach(k=>{ result[k] = lo[k] + (hi[k]-lo[k])*frac; });
+  return result;
+}
+
+function fmtTime(sec){
+  sec = Math.max(0, Math.round(sec));
+  const m = Math.floor(sec/60), s = sec%60;
+  return m+':'+String(s).padStart(2,'0');
+}
+
+const SIM_STAGES = [
+  {key:'run', label:'Run 1 (1km)'},
+  {key:'skierg', label:'SkiErg 1000m'},
+  {key:'run', label:'Run 2 (1km)'},
+  {key:'sledPush', label:'Sled Push'},
+  {key:'run', label:'Run 3 (1km)'},
+  {key:'sledPull', label:'Sled Pull'},
+  {key:'run', label:'Run 4 (1km)'},
+  {key:'burpees', label:'Burpee Broad Jumps'},
+  {key:'run', label:'Run 5 (1km)'},
+  {key:'row', label:'Rowing 1000m'},
+  {key:'run', label:'Run 6 (1km)'},
+  {key:'farmers', label:'Farmers Carry'},
+  {key:'run', label:'Run 7 (1km)'},
+  {key:'lunges', label:'Sandbag Lunges'},
+  {key:'run', label:'Run 8 (1km)'},
+  {key:'wallballs', label:'Wall Balls'}
+];
+
+function renderRacePlanSubTabs(){
+  const wrap = document.getElementById('racePlanSubTabs');
+  wrap.innerHTML = '';
+  [['pacing','Pacing Calculator'],['strategy','Race Strategy'],['sim','Simulation Timer']].forEach(([id,label])=>{
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (raceplanSub===id?' active':'');
+    btn.textContent = label;
+    btn.onclick = () => { raceplanSub = id; renderRacePlanView(); };
+    wrap.appendChild(btn);
+  });
+}
+
+function renderRacePlanView(){
+  renderRacePlanSubTabs();
+  ['pacingSub','strategySub','simSub'].forEach(id=>{
+    document.getElementById(id).style.display = (id === raceplanSub+'Sub') ? 'block':'none';
+  });
+  if(raceplanSub==='pacing') renderPacingSub();
+  if(raceplanSub==='strategy') renderStrategySub();
+  if(raceplanSub==='sim') renderSimSub();
+}
+
+function renderPacingSub(){
+  const el = document.getElementById('pacingSub');
+  const settings = loadSettings();
+  const goalStr = settings.goalTime || '1:30:00';
+  el.innerHTML = `
+    <div class="card">
+      <h3>Set your goal finish time</h3>
+      <div class="field"><label>Goal time (h:mm:ss)</label><input type="text" id="goalTimeInput" value="${goalStr}" placeholder="1:30:00"></div>
+      <button class="btn small" id="calcPacingBtn">Calculate splits</button>
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;">Splits are interpolated from benchmark pacing data for 1:10:00 (elite), 1:30:00 (intermediate) and 2:00:00 (beginner) goal times (<a href="https://hyroxdatalab.com/articles/hyrox-pacing-calculator-guide" target="_blank" style="color:var(--accent2);">HyroxDataLab</a>).</p>
+    </div>
+    <div id="pacingResult"></div>
+  `;
+  document.getElementById('calcPacingBtn').onclick = () => {
+    const val = document.getElementById('goalTimeInput').value.trim();
+    const s = loadSettings(); s.goalTime = val; saveSettings(s);
+    renderPacingResult(val);
+  };
+  renderPacingResult(goalStr);
+}
+
+function parseGoalTime(str){
+  const parts = str.split(':').map(p=>parseInt(p,10));
+  if(parts.length===3) return parts[0]*3600+parts[1]*60+parts[2];
+  if(parts.length===2) return parts[0]*60+parts[1];
+  return null;
+}
+
+function renderPacingResult(goalStr){
+  const goalSeconds = parseGoalTime(goalStr);
+  const resultEl = document.getElementById('pacingResult');
+  if(!goalSeconds){ resultEl.innerHTML = '<div class="empty-note">Enter a valid goal time like 1:30:00</div>'; return; }
+  const p = interpolatePacing(goalSeconds);
+  const numGaps = SIM_STAGES.length - 1;
+  const perGap = p.roxzoneTotal / numGaps;
+  let cumulative = 0;
+  const rows = SIM_STAGES.map((stage, idx)=>{
+    let dur;
+    if(stage.key==='run') dur = p.runPace;
+    else dur = p[stage.key];
+    cumulative += dur;
+    const roxzoneAfter = idx < SIM_STAGES.length-1 ? perGap : 0;
+    if(roxzoneAfter) cumulative += roxzoneAfter;
+    return `<tr><td>${stage.label}</td><td class="num">${fmtTime(dur)}</td><td class="num">${fmtTime(cumulative)}</td></tr>`;
+  }).join('');
+  resultEl.innerHTML = `
+    <div class="chart-wrap">
+      <h4>Target splits for ${goalStr}</h4>
+      <table class="segment-table">
+        <thead><tr><th>Segment</th><th style="text-align:right;">Split</th><th style="text-align:right;">Cumulative</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;">Includes ~${fmtTime(p.roxzoneTotal)} total RoxZone (transition) time spread across the race, roughly ${fmtTime(perGap)} per transition. Runs 5-8 will naturally slow 10-20 sec/km from fatigue &mdash; that's already reflected in the benchmark data, so stick to the plan rather than chasing early splits.</p>
+    </div>
+  `;
+}
+
+function renderStrategySub(){
+  const el = document.getElementById('strategySub');
+  el.innerHTML = `
+    <div class="cue-box"><b>Runs (1-4):</b> 80-85% effort. If you can speak 2-3 word phrases while running, you're at the right pace. This is active recovery between stations, not a race.</div>
+    <div class="cue-box"><b>Runs (5-8):</b> Expect 10-20 sec/km slower than runs 1-2 due to fatigue &mdash; that's normal, not a sign you're fading. Hold effort, not pace.</div>
+    <div class="cue-box"><b>Power stations</b> (Sled Push/Pull, Wall Balls, Burpee Broad Jumps): 85-90% effort. Fast, controlled reps beat sprinting into failure.</div>
+    <div class="cue-box"><b>Controlled stations</b> (SkiErg, Row, Farmers Carry): 70-80% effort, smooth rhythm, relaxed grip, full hip extension on the erg.</div>
+    <div class="cue-box"><b>Transitions (RoxZone):</b> Budget 1:00-1:30 each. Practice picking up equipment immediately after finishing a run &mdash; every 30 seconds saved per transition is about 4 minutes off your total time.</div>
+    <div class="cue-box"><b>Pacing discipline:</b> Athletes who keep their 8 run splits within ~10% of each other finish 5-10% faster than those who go out fast and fade. Don't chase people in the first 2km &mdash; the race really starts after station 5.</div>
+    <p style="font-size:0.72rem;color:var(--muted);">Sources: <a href="https://rb100.fitness/articles/hyrox/hyrox-pacing-strategy/" target="_blank" style="color:var(--accent2);">RB100 Fitness</a>, <a href="https://www.redbull.com/us-en/hyrox-expert-coach-tips-advice" target="_blank" style="color:var(--accent2);">Red Bull</a>, <a href="https://hybridprocoach.com/FR-FR/blogs/race-intelligence/hyrox-pacing-strategy-split-times" target="_blank" style="color:var(--accent2);">Hybrid Pro Coach</a>.</p>
+  `;
+}
+
+let simState = { running:false, stageIdx:0, startTime:0, stageStartTime:0, laps:[], interval:null };
+
+function renderSimSub(){
+  const el = document.getElementById('simSub');
+  const sims = loadSims();
+  el.innerHTML = `
+    <div class="card">
+      <h3>Full simulation timer</h3>
+      <div class="sim-timer-display" id="simTimerDisplay">0:00</div>
+      <div class="sim-current" id="simCurrentStage">Ready to start &mdash; Stage 1: ${SIM_STAGES[0].label}</div>
+      <div class="row-flex">
+        <button class="btn" id="simStartBtn">Start</button>
+        <button class="btn secondary" id="simLapBtn" disabled>Lap / Next Stage</button>
+      </div>
+    </div>
+    <div id="simPastResults"></div>
+  `;
+  document.getElementById('simStartBtn').onclick = simStart;
+  document.getElementById('simLapBtn').onclick = simLap;
+  renderPastSims(sims);
+}
+
+function simTick(){
+  const elapsed = (Date.now() - simState.startTime)/1000;
+  document.getElementById('simTimerDisplay').textContent = fmtTime(elapsed);
+}
+
+function simStart(){
+  if(simState.running) return;
+  simState = { running:true, stageIdx:0, startTime:Date.now(), stageStartTime:Date.now(), laps:[], interval:null };
+  simState.interval = setInterval(simTick, 250);
+  document.getElementById('simStartBtn').disabled = true;
+  document.getElementById('simLapBtn').disabled = false;
+  document.getElementById('simCurrentStage').textContent = 'Stage 1 of 16: ' + SIM_STAGES[0].label;
+}
+
+function simLap(){
+  if(!simState.running) return;
+  const now = Date.now();
+  const stageDur = (now - simState.stageStartTime)/1000;
+  simState.laps.push({ stage: SIM_STAGES[simState.stageIdx].label, key: SIM_STAGES[simState.stageIdx].key, seconds: stageDur });
+  simState.stageIdx++;
+  simState.stageStartTime = now;
+  if(simState.stageIdx >= SIM_STAGES.length){
+    simFinish();
+  }else{
+    document.getElementById('simCurrentStage').textContent = `Stage ${simState.stageIdx+1} of 16: ${SIM_STAGES[simState.stageIdx].label}`;
+  }
+}
+
+function simFinish(){
+  clearInterval(simState.interval);
+  const totalSeconds = (Date.now() - simState.startTime)/1000;
+  const sims = loadSims();
+  sims.push({ date: todayStr(), totalSeconds, laps: simState.laps });
+  saveSims(sims);
+  document.getElementById('simStartBtn').disabled = false;
+  document.getElementById('simLapBtn').disabled = true;
+  document.getElementById('simCurrentStage').textContent = `Simulation complete: ${fmtTime(totalSeconds)}`;
+  simState.running = false;
+  renderPastSims(sims);
+}
+
+function renderPastSims(sims){
+  const el = document.getElementById('simPastResults');
+  if(!sims.length){ el.innerHTML = '<div class="empty-note">No simulations logged yet.</div>'; return; }
+  const settings = loadSettings();
+  const goalSeconds = parseGoalTime(settings.goalTime || '1:30:00') || 5400;
+  const pace = interpolatePacing(goalSeconds);
+  el.innerHTML = sims.slice().reverse().map(sim=>{
+    const rows = sim.laps.map(lap=>{
+      const target = lap.key==='run' ? pace.runPace : pace[lap.key];
+      const delta = lap.seconds - target;
+      const deltaStr = (delta>=0?'+':'') + Math.round(delta) + 's';
+      return `<div class="sim-stage"><span class="stage-name">${lap.stage}</span><span class="stage-time">${fmtTime(lap.seconds)} <span style="color:${delta<=0?'var(--green)':'var(--yellow)'};font-size:0.75rem;">(${deltaStr})</span></span></div>`;
+    }).join('');
+    return `<div class="chart-wrap"><h4>${sim.date} &mdash; Total: ${fmtTime(sim.totalSeconds)}</h4>${rows}</div>`;
+  }).join('');
+}
+
+/* ---------- Body & Log ---------- */
+let weightChartInstance = null;
+
+function renderBodySubTabs(){
+  const wrap = document.getElementById('bodySubTabs');
+  wrap.innerHTML = '';
+  [['weight','Body Weight'],['daily','Daily Log']].forEach(([id,label])=>{
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (bodySub===id?' active':'');
+    btn.textContent = label;
+    btn.onclick = () => { bodySub = id; renderBodyView(); };
+    wrap.appendChild(btn);
+  });
+}
+
+function renderBodyView(){
+  renderBodySubTabs();
+  document.getElementById('weightSub').style.display = bodySub==='weight' ? 'block':'none';
+  document.getElementById('dailySub').style.display = bodySub==='daily' ? 'block':'none';
+  if(bodySub==='weight') renderWeightSub();
+  if(bodySub==='daily') renderDailySub();
+}
+
+function renderWeightSub(){
+  const el = document.getElementById('weightSub');
+  el.innerHTML = `
+    <div class="card">
+      <h3>Log body weight</h3>
+      <div class="row-flex">
+        <div class="field"><label>Weight (kg)</label><input type="number" step="0.1" id="weightInput" placeholder="e.g. 82.5"></div>
+        <div class="field"><label>Body fat % (optional)</label><input type="number" step="0.1" id="bodyfatInput" placeholder="e.g. 15"></div>
+      </div>
+      <button class="btn small" id="addWeightBtn">Add entry</button>
+    </div>
+    <div class="chart-wrap"><h4>Weight trend</h4><canvas id="weightChart"></canvas></div>
+    <div id="weightList"></div>
+  `;
+  document.getElementById('addWeightBtn').onclick = () => {
+    const w = parseFloat(document.getElementById('weightInput').value);
+    if(isNaN(w)) return;
+    const bf = parseFloat(document.getElementById('bodyfatInput').value);
+    const entries = loadWeights();
+    entries.push({ date: todayStr(), weight: w, bodyfat: isNaN(bf)?null:bf });
+    saveWeights(entries);
+    renderWeightSub();
+  };
+  const entries = loadWeights().slice().sort((a,b)=>a.date.localeCompare(b.date));
+  const ctx = document.getElementById('weightChart').getContext('2d');
+  if(weightChartInstance) weightChartInstance.destroy();
+  weightChartInstance = new Chart(ctx, {
+    type:'line',
+    data:{ labels: entries.map(e=>e.date), datasets:[{ label:'Weight (kg)', data: entries.map(e=>e.weight), borderColor:'#3ddc97', backgroundColor:'rgba(61,220,151,0.15)', tension:0.25 }] },
+    options:{ responsive:true, plugins:{legend:{display:false}}, scales:{ y:{ ticks:{color:'#9aa1ac'}, grid:{color:'#2a2e37'} }, x:{ ticks:{color:'#9aa1ac'}, grid:{display:false} } } }
+  });
+  const listEl = document.getElementById('weightList');
+  if(!entries.length){ listEl.innerHTML = '<div class="empty-note">No weight entries yet.</div>'; return; }
+  listEl.innerHTML = entries.slice().reverse().slice(0,10).map(e=>`<div class="log-entry"><span>${e.date}</span><span>${e.weight}kg${e.bodyfat?' &middot; '+e.bodyfat+'% BF':''}</span></div>`).join('');
+}
+
+function renderDailySub(){
+  const el = document.getElementById('dailySub');
+  const today = todayStr();
+  const logs = loadDailyLogs();
+  const todayEntry = logs.find(l=>l.date===today) || { date: today, rpe:null, soreness:null, sleep:null, note:'' };
+  el.innerHTML = `
+    <div class="card">
+      <h3>Today's check-in (${today})</h3>
+      <div class="field"><label>Session RPE (1=easy, 10=max effort)</label>
+        <div class="rpe-scale" id="rpeScale"></div>
+      </div>
+      <div class="field"><label>Soreness (1=none, 5=very sore)</label>
+        <div class="rpe-scale" id="sorenessScale"></div>
+      </div>
+      <div class="field"><label>Sleep quality (1=poor, 5=great)</label>
+        <div class="rpe-scale" id="sleepScale"></div>
+      </div>
+      <div class="field"><label>Notes (optional)</label><input type="text" id="dailyNoteInput" value="${todayEntry.note||''}" placeholder="How did it feel?"></div>
+      <button class="btn small" id="saveDailyBtn">Save today's log</button>
+    </div>
+    <div id="dailyLogList"></div>
+  `;
+  function buildScale(containerId, max, selected, onSel){
+    const wrap = document.getElementById(containerId);
+    for(let i=1;i<=max;i++){
+      const btn = document.createElement('div');
+      btn.className = 'rpe-btn' + (selected===i?' sel':'');
+      btn.textContent = i;
+      btn.onclick = () => onSel(i);
+      wrap.appendChild(btn);
+    }
+  }
+  let current = {...todayEntry};
+  buildScale('rpeScale', 10, current.rpe, (v)=>{ current.rpe=v; renderDailySub2(current); });
+  buildScale('sorenessScale', 5, current.soreness, (v)=>{ current.soreness=v; renderDailySub2(current); });
+  buildScale('sleepScale', 5, current.sleep, (v)=>{ current.sleep=v; renderDailySub2(current); });
+
+  function renderDailySub2(vals){
+    current = vals;
+    document.getElementById('rpeScale').querySelectorAll('.rpe-btn').forEach((b,idx)=>b.classList.toggle('sel', idx+1===vals.rpe));
+    document.getElementById('sorenessScale').querySelectorAll('.rpe-btn').forEach((b,idx)=>b.classList.toggle('sel', idx+1===vals.soreness));
+    document.getElementById('sleepScale').querySelectorAll('.rpe-btn').forEach((b,idx)=>b.classList.toggle('sel', idx+1===vals.sleep));
+  }
+
+  document.getElementById('saveDailyBtn').onclick = () => {
+    current.note = document.getElementById('dailyNoteInput').value;
+    const all = loadDailyLogs();
+    const idx = all.findIndex(l=>l.date===today);
+    if(idx>=0) all[idx] = current; else all.push(current);
+    saveDailyLogs(all);
+    renderDailyLogList();
+  };
+  renderDailyLogList();
+}
+
+function renderDailyLogList(){
+  const listEl = document.getElementById('dailyLogList');
+  if(!listEl) return;
+  const logs = loadDailyLogs().slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10);
+  if(!logs.length){ listEl.innerHTML = '<div class="empty-note">No daily logs yet.</div>'; return; }
+  listEl.innerHTML = '<div class="chart-wrap"><h4>Recent logs</h4>' + logs.map(l=>
+    `<div class="log-entry"><span>${l.date}</span><span>RPE ${l.rpe??'-'} &middot; Soreness ${l.soreness??'-'} &middot; Sleep ${l.sleep??'-'}</span></div>`
+  ).join('') + '</div>';
+}
+
+/* ---------- Settings: reminders, sync, export ---------- */
+function renderSettingsView(){
+  const el = document.getElementById('settingsView').querySelector('main');
+  const settings = loadSettings();
+  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  el.innerHTML = `
+    <div class="card">
+      <h3>Training reminders</h3>
+      <div class="toggle-row">
+        <span>Enable daily reminder</span>
+        <label class="switch"><input type="checkbox" id="reminderToggle" ${settings.remindersOn?'checked':''}><span class="slider-toggle"></span></label>
+      </div>
+      <div class="field" style="margin-top:10px;"><label>Reminder time</label><input type="time" id="reminderTime" value="${settings.remindTime}"></div>
+      <div class="field"><label>Days</label>
+        <div class="day-chip-row" id="dayChipRow"></div>
+      </div>
+      <button class="btn small" id="requestNotifBtn">Enable browser notifications</button>
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:10px;">Reminders fire while this app is open in your browser (or via your phone's home-screen install). This is a static app with no push server, so it can't wake your phone in the background like a native app &mdash; but if you check in daily, you'll get a nudge banner and notification when it's due.</p>
+    </div>
+    <div class="card">
+      <h3>Cloud sync</h3>
+      <div class="sync-status" id="settingsSyncStatusInline">Checking...</div>
+      <button class="btn secondary small" onclick="manualSync()" style="margin-top:8px;">Sync now</button>
+    </div>
+    <div class="card">
+      <h3>Data</h3>
+      <button class="btn secondary small" id="exportBtn">Export all data (JSON)</button>
+    </div>
+  `;
+  const dayRow = document.getElementById('dayChipRow');
+  dayNames.forEach((name, idx)=>{
+    const chip = document.createElement('div');
+    chip.className = 'day-chip' + (settings.remindDays.includes(idx)?' sel':'');
+    chip.textContent = name;
+    chip.onclick = () => {
+      const s = loadSettings();
+      const pos = s.remindDays.indexOf(idx);
+      if(pos>=0) s.remindDays.splice(pos,1); else s.remindDays.push(idx);
+      saveSettings(s);
+      renderSettingsView();
+    };
+    dayRow.appendChild(chip);
+  });
+  document.getElementById('reminderToggle').onchange = (e) => {
+    const s = loadSettings(); s.remindersOn = e.target.checked; saveSettings(s);
+  };
+  document.getElementById('reminderTime').onchange = (e) => {
+    const s = loadSettings(); s.remindTime = e.target.value; saveSettings(s);
+  };
+  document.getElementById('requestNotifBtn').onclick = () => {
+    if('Notification' in window) Notification.requestPermission();
+  };
+  document.getElementById('exportBtn').onclick = exportData;
+  setSyncStatus(syncState, syncState==='ok' ? 'Synced across devices' : syncState==='err' ? 'Local only (no cloud connection)' : 'Syncing...');
+}
+
+function exportData(){
+  const out = {};
+  SYNC_KEYS.forEach(k=>{ out[k] = loadJSON(k); });
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'hyrox_data_export_'+todayStr()+'.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- Due-today reminder banner ---------- */
+function renderDueBanner(){
+  const existing = document.getElementById('dueBanner');
+  if(existing) existing.remove();
+  const settings = loadSettings();
+  if(!settings.remindersOn) return;
+  const now = new Date();
+  const dayIdx = now.getDay();
+  if(!settings.remindDays.includes(dayIdx)) return;
+  const [h,m] = (settings.remindTime||'18:00').split(':').map(Number);
+  const remindDate = new Date(); remindDate.setHours(h,m,0,0);
+  if(now < remindDate) return;
+  const dates = loadCompletionDates();
+  const today = todayStr();
+  if(dates[today] && dates[today].length>0) return;
+  const banner = document.createElement('div');
+  banner.className = 'banner-due';
+  banner.id = 'dueBanner';
+  banner.innerHTML = "\uD83D\uDD14 <b>Training reminder:</b> you haven't checked off anything today yet. Get today's session in!";
+  document.querySelector('#workoutsView main').insertBefore(banner, document.getElementById('daysContainer'));
+}
+
+function checkAndFireNotification(){
+  const settings = loadSettings();
+  if(!settings.remindersOn) return;
+  if(!('Notification' in window) || Notification.permission !== 'granted') return;
+  const now = new Date();
+  const dayIdx = now.getDay();
+  if(!settings.remindDays.includes(dayIdx)) return;
+  const [h,m] = (settings.remindTime||'18:00').split(':').map(Number);
+  if(now.getHours()===h && now.getMinutes()===m){
+    const dates = loadCompletionDates();
+    const today = todayStr();
+    if(!dates[today] || dates[today].length===0){
+      new Notification('HYROX Cairo Training', { body: "Time to train — you haven't logged today's session yet." });
+    }
+  }
+}
+setInterval(checkAndFireNotification, 60000);
+
+/* ---------- master render ---------- */
 function render(){
   renderTabs();
   renderWeeks();
@@ -431,6 +1255,9 @@ function render(){
 }
 
 render();
+renderMainTabs();
+pullAllFromCloud();
+
 </script>
 </body>
 </html>
